@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "200178333772",
+    "project_id": "fishnetlk-d24cf",
+    "storage_bucket": "fishnetlk-d24cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:200178333772:android:025525489c9e380c811ce9",
+        "android_client_info": {
+          "package_name": "com.example.fishnetlk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "200178333772-3pu0hj25q414uvuob331169jj32v7d09.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa_fW-_RcW23ERxpk6tDrqgTU_Gc7RprM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "200178333772-3pu0hj25q414uvuob331169jj32v7d09.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "200178333772-9hossn25im3vedjidh8fq6k3kb92arba.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fishnetlk"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
