@@ -1,3 +1,4 @@
+// Storage folder names
 class StorageFolderNames {
   static const String profilePics = 'profile_pics';
   static const String photos = 'image';

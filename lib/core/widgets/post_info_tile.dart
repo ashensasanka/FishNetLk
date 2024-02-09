@@ -1,29 +1,19 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:fishnetlk/core/constants/extensions.dart';
-import 'package:fishnetlk/core/screens/loader.dart';
-// import 'package:fishnetlk/core/screens/profile_screen.dart';
-import 'package:fishnetlk/features/auth/providers/get_user_info_by_id_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
-
 import '../../controller/home_controller.dart';
 import '../../features/posts/presentation/widgets/icon_text_button.dart';
 import '../../features/posts/presentation/widgets/post_Image_video_view.dart';
 import '../../features/posts/presentation/widgets/round_like_icon.dart';
 
+// Post information tile
 class PostInfoTile extends StatelessWidget {
   int index ;
   PostInfoTile({
     Key? key,
     required this.index
-    // required this.datePublished,
-    // required this.userId,
   }) : super(key: key);
-
-  // final DateTime datePublished;
-  // final String userId;
 
   @override
   Widget build(BuildContext context) {
@@ -42,12 +32,7 @@ class PostInfoTile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     GestureDetector(
-                      onTap: () {
-                        // Navigator.of(context).pushNamed(
-                        //   ProfileScreen.routeName,
-                        //   arguments: userId,
-                        // );
-                      },
+                      onTap: () {},
                       child: CircleAvatar(
                         backgroundImage: NetworkImage(userId.makePostUi[1].image as String),
                       ),
@@ -119,7 +104,7 @@ class PostInfoTile extends StatelessWidget {
   });
 }
 }
-
+// Post like buttons
  class PostStats extends StatelessWidget {
   const PostStats({
     super.key,
@@ -174,12 +159,6 @@ class _PostButtonsState extends State<PostButtons> {
         IconTextButton(
           icon: FontAwesomeIcons.solidMessage,
           label: 'Comment',
-          // onPressed: () {
-          //   Navigator.of(context).pushNamed(
-          //     CommentsScreen.routeName,
-          //     arguments: post.postId,
-          //   );
-          // },
         ),
         IconTextButton(
           icon: FontAwesomeIcons.share,
@@ -189,52 +168,3 @@ class _PostButtonsState extends State<PostButtons> {
     );
   }
 }
-
-
-// class PostButtons extends StatelessWidget {
-//   const PostButtons({
-//     super.key,
-//     // required this.post,
-//   });
-//
-//   // final Post post;
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     bool isLiked = true;
-//     // final isLiked = post.likes.contains(FirebaseAuth.instance.currentUser!.uid);
-//     return Row(
-//       mainAxisAlignment: MainAxisAlignment.spaceAround,
-//       children: [
-//         IconTextButton(
-//           icon: isLiked
-//               ? Icons.thumb_up_alt
-//               : Icons.thumb_up_alt_outlined,
-//           color: isLiked ? Colors.blue : Colors.black,
-//           label: 'Like',
-//           onPressed: () {
-//             // Toggle the liked state when the button is pressed
-//             setState(() {
-//               isLiked = !isLiked;
-//             });
-//             // TODO: Perform any other necessary operations, such as updating the server or local state
-//           },
-//         ),
-//         IconTextButton(
-//           icon: FontAwesomeIcons.solidMessage,
-//           label: 'Comment',
-//           // onPressed: () {
-//           //   Navigator.of(context).pushNamed(
-//           //     CommentsScreen.routeName,
-//           //     arguments: post.postId,
-//           //   );
-//           // },
-//         ),
-//         IconTextButton(
-//           icon: FontAwesomeIcons.share,
-//           label: 'Share',
-//         ),
-//       ],
-//     );
-//   }
-// }

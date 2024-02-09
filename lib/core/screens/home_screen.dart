@@ -59,6 +59,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
   }
 
+  // App bar title
   Widget buildFishnetbookText() => const Text(
         'Experts Post',
         style: TextStyle(
@@ -72,6 +73,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         icon: FontAwesomeIcons.search,
       );
 
+  //Messenger Icon
   Widget _buildMessengerWidget() =>
       InkWell(
         onTap: () {

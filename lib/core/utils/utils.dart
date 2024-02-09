@@ -1,5 +1,4 @@
 import 'dart:io';
-////
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
@@ -21,6 +20,7 @@ Future<File?> pickImage() async {
   return image;
 }
 
+//Pick video method
 Future<File?> pickVideo() async {
   File? video;
   final picker = ImagePicker();

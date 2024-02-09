@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Prograss indicator
 class Loader extends StatelessWidget {
   const Loader({super.key});
 
