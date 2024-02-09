@@ -32,7 +32,7 @@ class _CreatePostScreenState extends ConsumerState<CreatePostScreen> {
     builder: (ctrl){
       return Scaffold(
         appBar: AppBar(
-          title: Text('Post a Challenge',
+          title: const Text('Post a Challenge',
                         style: TextStyle(fontWeight: FontWeight.bold),),
         ),
         body: SingleChildScrollView(
@@ -41,22 +41,22 @@ class _CreatePostScreenState extends ConsumerState<CreatePostScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ProfileInfo(),
+                const ProfileInfo(),
                 // post text field
-                SizedBox(height: 15,),
+                const SizedBox(height: 15,),
                 Row(
                   children: [
-                    SizedBox(width: 15,),
-                    Flexible(
+                    const SizedBox(width: 15,),
+                    const Flexible(
                         child: Text('Challenge From',
                                     style: TextStyle(
                                         fontSize: 19),
                         )
                     ),
-                    SizedBox(width: 30,),
+                    const SizedBox(width: 30,),
                     Flexible(
                       child: DropDownBtn(
-                        items: ['Experts', 'Government Agencies'],
+                        items: const ['Experts', 'Government Agencies'],
                         selectedItemText: ctrl.from,
                         onSelected: (selectedValue) {
                           ctrl.from = selectedValue ?? 'From';
@@ -65,45 +65,45 @@ class _CreatePostScreenState extends ConsumerState<CreatePostScreen> {
                       )),
                   ],
                 ),
-                SizedBox(height: 15,),
-                Row(
+                const SizedBox(height: 15,),
+                const Row(
                   children: [
                     SizedBox(width: 15,),
                     Text('Title',
                     style: TextStyle(fontSize: 22),),
                   ],
                 ),
-                SizedBox(height: 5,),
+                const SizedBox(height: 5,),
                 TextField(
                   controller: ctrl.challengeTitleCtrl,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(50)
                       ),
-                      label: Text('Title Required'),
+                      label: const Text('Title Required'),
                       hintText: 'Enter Title'
                   ),
                 ),
-                SizedBox(height: 15,),
-                Row(
+                const SizedBox(height: 15,),
+                const Row(
                   children: [
                     SizedBox(width: 15,),
                     Text('Email',
                       style: TextStyle(fontSize: 22),),
                   ],
                 ),
-                SizedBox(height: 5,),
+                const SizedBox(height: 5,),
                 TextField(
                   controller: ctrl.challengeEmailCtrl,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(50)
                       ),
-                      label: Text('Email Required'),
+                      label: const Text('Email Required'),
                       hintText: 'Enter Email'
                   ),
                 ),
-                SizedBox(height: 15,),
+                const SizedBox(height: 15,),
                 TextField(
                   controller: ctrl.challengeDescriptionCtrl,
                   decoration: const InputDecoration(
@@ -119,7 +119,6 @@ class _CreatePostScreenState extends ConsumerState<CreatePostScreen> {
                   maxLines: 10,
                 ),
                 const SizedBox(height: 20),
-
                 file != null
                     ? ImageVideoView(
                   file: file!,
@@ -148,7 +147,7 @@ class _CreatePostScreenState extends ConsumerState<CreatePostScreen> {
                         ctrl.addPost(file, fileType);
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                          MaterialPageRoute(builder: (context) => const HomeScreen()),
                         );
                   },
                   label: 'Post',
@@ -178,12 +177,12 @@ class PickFileWidget extends StatelessWidget {
 
     return Row(
       children: [
-        SizedBox(width: 50,),
+        const SizedBox(width: 50,),
         TextButton(
           onPressed: pickImage,
           child: const Text('Pick Image'),
         ),
-        SizedBox(width: 50,),
+        const SizedBox(width: 50,),
         TextButton(
           onPressed: pickVideo,
           child: const Text('Pick Video'),

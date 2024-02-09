@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 const pal = [0xFFF2387C, 0xFF05C7F2, 0xFF04D9C4, 0xFFF2B705, 0xFFF26241];
@@ -20,19 +19,19 @@ class ViewGraphPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFD2DCFF),
-        title: Text('Graph View',
+        backgroundColor: const Color(0xFFD2DCFF),
+        title: const Text('Graph View',
           style: TextStyle(
               fontWeight: FontWeight.bold
           ),),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context); // This will navigate back when the back button is pressed
           },
         ),
       ),
-      backgroundColor: Color(0xFFE9EFFF),
+      backgroundColor: const Color(0xFFE9EFFF),
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.white,
         color: color,
@@ -60,7 +59,7 @@ class ViewGraphPage extends StatelessWidget {
         children: [
           // Background image
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('lib/images/Insights.jpg'), // Replace with your image asset path
                 fit: BoxFit.cover,
@@ -103,7 +102,7 @@ class _DonutChartWidgetState extends State<DonutChartWidget> {
   @override
   void initState() {
     super.initState();
-    timer = Timer.periodic(Duration(milliseconds: 1000 ~/ 60), (timer) {
+    timer = Timer.periodic(const Duration(milliseconds: 1000 ~/ 60), (timer) {
       setState(() {
         fullAngle += 360.0 / (secondsToComplete * 1000 ~/ 60);
         if (fullAngle >= 360.0) {
@@ -222,7 +221,7 @@ class DonutChartPainter extends CustomPainter {
     {
       final rect = Rect.fromCenter(
           center: position, width: sz.width + 5, height: sz.height + 5);
-      final rrect = RRect.fromRectAndRadius(rect, Radius.circular(5));
+      final rrect = RRect.fromRectAndRadius(rect, const Radius.circular(5));
       canvas.drawRRect(rrect, midPaint);
     });
   }

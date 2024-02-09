@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // Here we defined the textBox to type the texts in the app
 class MyTextBox extends StatelessWidget {
@@ -14,7 +13,7 @@ class MyTextBox extends StatelessWidget {
         color: Colors.grey[200],
         borderRadius: BorderRadius.circular(8)
       ),
-      padding: EdgeInsets.only(
+      padding: const EdgeInsets.only(
         left: 15,
         bottom: 15
       ),
@@ -27,7 +26,7 @@ class MyTextBox extends StatelessWidget {
             children: [
               Text(sectionName,
               style: TextStyle(color: Colors.grey[500]),),
-              IconButton(onPressed: onPressed, icon: Icon(Icons.settings))
+              IconButton(onPressed: onPressed, icon: const Icon(Icons.settings))
             ],
           ),
           Text(text)

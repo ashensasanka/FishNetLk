@@ -3,7 +3,6 @@ import 'package:fishnetlk/controller/home_controller.dart';
 import 'package:fishnetlk/pages/add_product_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import '../widget/drawer_menu_widget.dart';
 
 class InitialPage extends StatelessWidget {
@@ -20,7 +19,6 @@ class InitialPage extends StatelessWidget {
             color: color,
             animationDuration: const Duration(milliseconds: 300),
             onTap: (index){
-              print(index);
             },
             items: const [
               Icon(Icons.home,
@@ -35,7 +33,7 @@ class InitialPage extends StatelessWidget {
             ],
           ),
           body: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('lib/images/Fish_Market.jpg'), // Replace with your image asset path
                 fit: BoxFit.cover,
@@ -43,25 +41,25 @@ class InitialPage extends StatelessWidget {
             ),
             child: Column(
               children: [
-                SizedBox(height: 50,),
+                const SizedBox(height: 50,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center, // Add this line
                   children: [
                     // Move the DrawerMenuWidget here
                     Container(
-                      margin: EdgeInsets.all(18),
+                      margin: const EdgeInsets.all(18),
                       child: DrawerMenuWidget(
                         onClicked: openDrawer,
                       ),
                     ),
-                    Text(
+                    const Text(
                       'Listing Admin',
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                     ),
                     // Add any other widgets or empty container as needed
                     Container(),
-                    SizedBox(width: 45,)
+                    const SizedBox(width: 45,)
                   ],
                 ),
                 SizedBox(
@@ -73,7 +71,7 @@ class InitialPage extends StatelessWidget {
                         title: Text(ctrl.products[index].name ?? ''),
                         subtitle: Text((ctrl.products[index].price ?? 0).toString()),
                         trailing: IconButton(
-                          icon: Icon(Icons.delete),
+                          icon: const Icon(Icons.delete),
                           onPressed: () {
                             ctrl.deleteProduct(ctrl.products[index].id ?? '');
                           },
@@ -87,9 +85,9 @@ class InitialPage extends StatelessWidget {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              Get.to(AddProductPage());
+              Get.to(const AddProductPage());
             },
-            child: Icon(Icons.add),
+            child: const Icon(Icons.add),
           ),
         );
       });

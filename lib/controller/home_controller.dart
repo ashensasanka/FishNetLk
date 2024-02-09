@@ -150,14 +150,12 @@ class HomeController extends GetxController{
       setValuesDefault();
     } catch (e) {
       Get.snackbar('Error', e.toString(), colorText: Colors.red);
-      print(e);
     }
   }
 
   // Add Post into postdetails collection
   DateTime now = DateTime.now();
   addPost(File? selectedImage, String filetype) async {
-    DateTime now = DateTime.now();
 
     try {
       if (selectedImage == null) {
@@ -192,7 +190,6 @@ class HomeController extends GetxController{
       setValuesDefault();
     } catch (e) {
       Get.snackbar('Error', e.toString(), colorText: Colors.red);
-      print(e);
     }
   }
 
@@ -212,7 +209,6 @@ class HomeController extends GetxController{
       setValuesDefault();
     } catch (e) {
       Get.snackbar('Error', e.toString(), colorText: Colors.red);
-      print(e);
     }
   }
 
@@ -232,7 +228,6 @@ class HomeController extends GetxController{
       setValuesDefault();
     } catch (e) {
       Get.snackbar('Error', e.toString(), colorText: Colors.red);
-      print(e);
     }
   }
 
@@ -258,7 +253,6 @@ class HomeController extends GetxController{
       setValuesDefault();
     } catch (e) {
       Get.snackbar('Error', e.toString(), colorText: Colors.red);
-      print(e);
     }
   }
 
@@ -282,7 +276,6 @@ class HomeController extends GetxController{
       setValuesDefault();
     } catch (e) {
       Get.snackbar('Error', e.toString(), colorText: Colors.red);
-      print(e);
     }
   }
 
@@ -306,7 +299,6 @@ class HomeController extends GetxController{
       setValuesDefault();
     } catch (e) {
       Get.snackbar('Error', e.toString(), colorText: Colors.red);
-      print(e);
     }
   }
 
@@ -333,7 +325,6 @@ class HomeController extends GetxController{
       Get.snackbar('Success', 'CartDetails fetch successfully', colorText: Colors.green);
     } catch (e) {
       Get.snackbar('Error', e.toString(), colorText: Colors.red);
-      print(e);
     } finally{
       update();
     }
@@ -350,7 +341,6 @@ class HomeController extends GetxController{
       Get.snackbar('Success', 'LogDetails fetch successfully', colorText: Colors.green);
     } catch (e) {
       Get.snackbar('Error', e.toString(), colorText: Colors.red);
-      print(e);
     } finally{
       update();
     }
@@ -367,7 +357,6 @@ class HomeController extends GetxController{
       // Get.snackbar('Success', 'Message fetch successfully', colorText: Colors.green);
     } catch (e) {
       Get.snackbar('Error', e.toString(), colorText: Colors.red);
-      print(e);
     } finally{
       update();
     }
@@ -384,7 +373,6 @@ class HomeController extends GetxController{
       // Get.snackbar('Success', 'Message fetch successfully', colorText: Colors.green);
     } catch (e) {
       Get.snackbar('Error', e.toString(), colorText: Colors.red);
-      print(e);
     } finally{
       update();
     }
@@ -401,7 +389,6 @@ class HomeController extends GetxController{
       Get.snackbar('Success', 'Post details fetch successfully', colorText: Colors.green);
     } catch (e) {
       Get.snackbar('Error', e.toString(), colorText: Colors.red);
-      print(e);
     } finally{
       update();
     }
@@ -418,7 +405,6 @@ class HomeController extends GetxController{
       Get.snackbar('Success', 'Product fetch successfully', colorText: Colors.green);
     } catch (e) {
       Get.snackbar('Error', e.toString(), colorText: Colors.red);
-      print(e);
     } finally{
       update();
     }
@@ -435,7 +421,6 @@ class HomeController extends GetxController{
       Get.snackbar('Success', 'Post fetch successfully', colorText: Colors.green);
     } catch (e) {
       Get.snackbar('Error', e.toString(), colorText: Colors.red);
-      print(e);
     } finally{
       update();
     }
@@ -452,7 +437,6 @@ class HomeController extends GetxController{
       Get.snackbar('Success', 'Category fetch successfully', colorText: Colors.green);
     } catch (e) {
       Get.snackbar('Error', e.toString(), colorText: Colors.red);
-      print(e);
     } finally{
       update();
     }
@@ -491,11 +475,9 @@ class HomeController extends GetxController{
       fetchProducts();
     } catch (e) {
       Get.snackbar('Error', e.toString(), colorText: Colors.red);
-      print(e);
     }
   }
 
   testMethod(){
-    print(test);
   }
 }

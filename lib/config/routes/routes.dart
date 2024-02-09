@@ -13,8 +13,6 @@ class Routes {
           const CreatePostScreen(),
         );
       case ChatScreen.routeName:
-        final arguments = settings.arguments as Map<String, dynamic>;
-        final userId = arguments['userId'] as String;
         return _cupertinoRoute(
           const ChatScreen(
             userId: 'userId',

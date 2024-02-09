@@ -5,7 +5,7 @@ import '../widget/drawer_menu_widget.dart';
 class MessagePage extends ConsumerStatefulWidget {
   final VoidCallback openDrawer;
 
-  const MessagePage({Key? key, required this.openDrawer});
+  const MessagePage({super.key, required this.openDrawer});
 
   @override
   ConsumerState<MessagePage> createState() => _MessagePageState();
@@ -18,7 +18,7 @@ class _MessagePageState extends ConsumerState<MessagePage> {
         appBar: AppBar(
           backgroundColor: Colors.orange,
           leading: DrawerMenuWidget(onClicked: widget.openDrawer),
-          title: Text('Message Page'),
+          title: const Text('Message Page'),
         ),
       );
 }

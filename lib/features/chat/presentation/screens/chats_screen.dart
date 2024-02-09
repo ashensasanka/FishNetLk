@@ -77,12 +77,12 @@ class _ChatsScreenState extends State<ChatsScreen> {
         child: const Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(width: 15),
-            const Icon(Icons.search),
-            const SizedBox(width: 15),
+            SizedBox(width: 15),
+            Icon(Icons.search),
+            SizedBox(width: 15),
             Expanded(
               child: TextField(
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: 'Search',
                   hintStyle: TextStyle(),

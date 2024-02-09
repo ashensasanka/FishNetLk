@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 import '../controller/home_controller.dart';
@@ -39,53 +38,50 @@ class ProductCard extends StatelessWidget {
                   width: double.maxFinite,
                   height: 120,
                 ),
-                SizedBox(height: 9),
+                const SizedBox(height: 9),
                 Text(
                   name,
-                  style: TextStyle(fontSize: 16),
+                  style: const TextStyle(fontSize: 16),
                   overflow: TextOverflow.ellipsis,
                 ),
-                SizedBox(height: 9),
+                const SizedBox(height: 9),
                 Text(
                   'Rs: $price',
-                  style: TextStyle(fontSize: 16),
+                  style: const TextStyle(fontSize: 16),
                   overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 4,),
                 // IconButton(onPressed: (){
                 // }, icon: icon),
-                Container(
-
-                  child: Row(
-                    children: [
-                      Flexible(
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
-                          decoration: BoxDecoration(
-                            color: Colors.green,
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                          child: Text(
-                            offerTag,
-                            style: const TextStyle(color: Colors.black, fontSize: 12),
-                          ),
+                Row(
+                  children: [
+                    Flexible(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        decoration: BoxDecoration(
+                          color: Colors.green,
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Text(
+                          offerTag,
+                          style: const TextStyle(color: Colors.black, fontSize: 12),
                         ),
                       ),
-                      SizedBox(width: 77,),
-                      InkWell(
-                        onTap: () {
-                          ctrl.addCart(index);
-                        },
-                        child: Flexible(
-                          child: Icon(
-                            Icons.shopping_cart,
-                            size: 24,
-                            color: Colors.black,
-                          ),
+                    ),
+                    const SizedBox(width: 77,),
+                    InkWell(
+                      onTap: () {
+                        ctrl.addCart(index);
+                      },
+                      child: const Flexible(
+                        child: Icon(
+                          Icons.shopping_cart,
+                          size: 24,
+                          color: Colors.black,
                         ),
-                      )
-                    ],
-                  ),
+                      ),
+                    )
+                  ],
                 )
               ],
             ),

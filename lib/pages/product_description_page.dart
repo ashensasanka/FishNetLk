@@ -1,6 +1,5 @@
 import 'package:fishnetlk/model/product/product.dart';
 import 'package:fishnetlk/pages/card_form_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -52,14 +51,14 @@ class ProductDescriptionPage extends StatelessWidget {
                 Expanded(
                   child: Column(
                     children: [
-                      Text('Contact with Seller', style: TextStyle(color: Colors.blue),),
-                      SizedBox(height: 10,),
+                      const Text('Contact with Seller', style: TextStyle(color: Colors.blue),),
+                      const SizedBox(height: 10,),
                       InkWell(
                           onTap: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => SellerChatScreen(),
+                                builder: (context) => const SellerChatScreen(),
                               ),
                             );
                           },
@@ -73,7 +72,7 @@ class ProductDescriptionPage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Text('Rs: ${product.price ?? ''}',
-              style: TextStyle(
+              style: const TextStyle(
                   fontSize: 20,
                   color: Colors.green,
                   fontWeight: FontWeight.bold
@@ -94,7 +93,7 @@ class ProductDescriptionPage extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(vertical: 15),
+                  padding: const EdgeInsets.symmetric(vertical: 15),
                   backgroundColor: Colors.green
                 ),
                 child: const Text(

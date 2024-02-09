@@ -65,8 +65,8 @@ class PostInfoTile extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 7),
-                child: Text('* ' + userId.postdetails[index].from.toString() + ' *',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                child: Text('* ${userId.postdetails[index].from} *',
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
               Padding(
@@ -120,7 +120,7 @@ class PostInfoTile extends StatelessWidget {
       children: [
         const RoundLikeIcon(),
         const SizedBox(width: 5),
-        Text('${likes}'),
+        Text('$likes'),
       ],
     );
   }
@@ -156,11 +156,11 @@ class _PostButtonsState extends State<PostButtons> {
             // TODO: Perform any other necessary operations, such as updating the server or local state
           },
         ),
-        IconTextButton(
+        const IconTextButton(
           icon: FontAwesomeIcons.solidMessage,
           label: 'Comment',
         ),
-        IconTextButton(
+        const IconTextButton(
           icon: FontAwesomeIcons.share,
           label: 'Share',
         ),

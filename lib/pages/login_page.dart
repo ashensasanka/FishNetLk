@@ -62,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('lib/images/FishNet_LoginPage.jpg'), // Replace with your image path
             fit: BoxFit.cover,
@@ -101,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                               context,
                               MaterialPageRoute(
                                   builder: (context){
-                                    return ForgotPasswordPage();
+                                    return const ForgotPasswordPage();
                                     },
                                 ),
                               );
@@ -161,7 +161,7 @@ class _LoginPageState extends State<LoginPage> {
                           onTap: ()=> AuthService().signInWithGoogle(),
                           imagePath: 'lib/images/google.png'),
 
-                      SizedBox(width: 25),
+                      const SizedBox(width: 25),
                       // apple button
                       SquareTile(
                           onTap: ()=>{},

@@ -11,7 +11,7 @@ class DrawerMenuWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => IconButton(
       // icon: FaIcon(FontAwesomeIcons.alignLeft),
-      icon: Icon(Icons.menu),
+      icon: const Icon(Icons.menu),
       color: Colors.black,
       onPressed: onClicked,
   );

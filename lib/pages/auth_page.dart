@@ -28,16 +28,16 @@ class _AuthPageState extends State<AuthPage> {
                 builder: (context, documentSnapshot) {
                   if (documentSnapshot.hasData && documentSnapshot.data != null) {
                     String userRole = documentSnapshot.data!.get('rool');
-                    return userRole == 'Experts' ? HomePageExperts() : HomePage();
+                    return userRole == 'Experts' ? const HomePageExperts() : const HomePage();
                   } else {
-                    return CircularProgressIndicator(); // Handle loading state
+                    return const CircularProgressIndicator(); // Handle loading state
                   }
                 },
               );
             }
           }
           // User is not logged in
-          return LoginOrRegisterPage();
+          return const LoginOrRegisterPage();
         },
       ),
     );

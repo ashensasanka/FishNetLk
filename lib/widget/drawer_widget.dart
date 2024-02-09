@@ -12,11 +12,11 @@ class DrawerWidget extends StatelessWidget{
 
   @override
   Widget build(BuildContext context)=> Container(
-    padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
+    padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
     child: SingleChildScrollView(
       child: Column(
         children: [
-          DrawerHeader(child: Icon(Icons.person, size: 100,color: Colors.black,)),
+          const DrawerHeader(child: Icon(Icons.person, size: 100,color: Colors.black,)),
           buildDrawerItems(context),
         ],
       ),
@@ -27,11 +27,11 @@ class DrawerWidget extends StatelessWidget{
     children: DrawerItems.all
         .map(
             (item) => ListTile(
-              contentPadding: EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+              contentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
               leading: Icon(item.icon, color: Colors.black,),
               title: Text(
                 item.title,
-                style: TextStyle(color: Colors.black, fontSize: 15),
+                style: const TextStyle(color: Colors.black, fontSize: 15),
               ),
               onTap: () => onSelectedItem(item),
             )

@@ -32,7 +32,7 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
     builder: (ctrl) {
       return Scaffold(
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('lib/images/Fish_Market_4.jpg'), // Replace with your image asset path
               fit: BoxFit.cover,
@@ -44,13 +44,13 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
               child: Form(
                 child: Column(
                   children: [
-                    SizedBox(height: 60,),
+                    const SizedBox(height: 60,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
-                          margin: EdgeInsets.all(18),
+                          margin: const EdgeInsets.all(18),
                           child: DrawerMenuWidget(
                             onClicked: widget.openDrawer,
                           ),
@@ -64,13 +64,13 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
                           },
                         ),
                         // Add any other widgets or empty container as needed
-                        SizedBox(
+                        const SizedBox(
                           width: 90,
                         )
                       ],
                     ),
-                    SizedBox(height: 30,),
-                    Text(
+                    const SizedBox(height: 30,),
+                    const Text(
                       'Challenge Account',
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                     ),
@@ -114,12 +114,12 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
                         ctrl.addChat(image);
                         Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => HomeScreen()),
+                            MaterialPageRoute(builder: (context) => const HomeScreen()),
                         );// Call your function here
                       },
                       label: 'Create Account',
                     ),
-                    SizedBox(height: 290,)
+                    const SizedBox(height: 290,)
                   ],
                 ),
               ),

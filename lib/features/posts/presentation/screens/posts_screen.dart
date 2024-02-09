@@ -16,10 +16,10 @@ class PostsScreen extends StatelessWidget {
         },
         child: CustomScrollView(
           slivers: [
-            FeedMakePostWidget(),
+            const FeedMakePostWidget(),
             //PostMyList(),
             SliverToBoxAdapter(
-              child: Container(
+              child: SizedBox(
                 height: 605,
                 // Set a height or adjust it according to your layout
                 child: ListView.separated(

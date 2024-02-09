@@ -1,6 +1,5 @@
 import 'package:fishnetlk/controller/home_controller.dart';
 import 'package:fishnetlk/pages/product_description_page.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'cart_card.dart';
@@ -23,7 +22,7 @@ class _CartPageState extends State<CartPage> {
         },
         child: Scaffold(
           body: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('lib/images/Fish_Market.jpg'), // Replace with your image asset path
                 fit: BoxFit.cover,
@@ -31,31 +30,31 @@ class _CartPageState extends State<CartPage> {
             ),
             child: Column(
               children: [
-                SizedBox(height: 60,),
+                const SizedBox(height: 60,),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(width: 10,),
+                    const SizedBox(width: 10,),
                     IconButton(
-                          icon: Icon(Icons.arrow_back),
+                          icon: const Icon(Icons.arrow_back),
                           onPressed: () {
                             Navigator.pop(context); // This will navigate back when the back button is pressed
                           },
                         ),
-                    SizedBox(width: 30,),
-                    Text(
+                    const SizedBox(width: 30,),
+                    const Text(
                       'Cart',
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                     ),
                     // Add any other widgets or empty container as needed
-                    SizedBox(
+                    const SizedBox(
                       width: 0,
                     )
                   ],
                 ),
                 Expanded(
                   child: GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 1,
                           childAspectRatio: 2.5,
                           crossAxisSpacing: 8,
@@ -69,7 +68,7 @@ class _CartPageState extends State<CartPage> {
                           price: ctrl.cartShowInUi[index].price ?? 00,
                           offerTag: '20 % off',
                           onTap: () {
-                            Get.to(ProductDescriptionPage(), arguments: {'data':ctrl.productShowInUi[index]});
+                            Get.to(const ProductDescriptionPage(), arguments: {'data':ctrl.productShowInUi[index]});
                           },);
                       }),
                 ),

@@ -17,6 +17,7 @@ class VideosScreen extends ConsumerWidget {
           itemCount: postsList.length,
           separatorBuilder: (context, index) => const SizedBox(height: 8),
           itemBuilder: (context, index) {
+            return null;
           },
         );
       },

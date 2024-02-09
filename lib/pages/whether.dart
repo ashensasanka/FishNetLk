@@ -1,5 +1,4 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class WhetherPage extends StatefulWidget {
@@ -32,13 +31,13 @@ class _WhetherPageState extends State<WhetherPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFD2DCFF),
-        title: Text('Whether',
+        backgroundColor: const Color(0xFFD2DCFF),
+        title: const Text('Whether',
           style: TextStyle(
             fontWeight: FontWeight.bold
           ),),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context); // This will navigate back when the back button is pressed
           },
@@ -49,7 +48,7 @@ class _WhetherPageState extends State<WhetherPage> {
           children: [
             Container(
               height: 700,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('lib/images/Whether_1.jpg'), // Replace with your image asset path
                   fit: BoxFit.cover,
@@ -58,7 +57,7 @@ class _WhetherPageState extends State<WhetherPage> {
             ),
             Container(
               height: 700, // Set the desired height for your image
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('lib/images/Whether_3.jpg'),
                   fit: BoxFit.cover,
@@ -68,13 +67,12 @@ class _WhetherPageState extends State<WhetherPage> {
           ],
         ),
       ),
-      backgroundColor: Color(0xFFE9EFFF),
+      backgroundColor: const Color(0xFFE9EFFF),
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.white,
         color: color,
         animationDuration: const Duration(milliseconds: 300),
         onTap: (index) {
-          print(index);
           if (index == 1) {
             Navigator.push(
               context,

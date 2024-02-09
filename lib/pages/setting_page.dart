@@ -83,7 +83,7 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
       backgroundColor: Colors.blue,
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('lib/images/Compass_2.jpg'), // Replace with your image asset path
             fit: BoxFit.cover,
@@ -91,36 +91,36 @@ class _SettingsPageState extends State<SettingsPage> {
         ),
         child: Column(
           children: [
-            SizedBox(height: 60,),
+            const SizedBox(height: 60,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center, // Add this line
               children: [
                 // Move the DrawerMenuWidget here
                 Container(
-                  margin: EdgeInsets.all(18),
+                  margin: const EdgeInsets.all(18),
                   child: DrawerMenuWidget(
                     onClicked: widget.openDrawer,
                   ),
                 ),
-                Text(
+                const Text(
                   'Compass',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                 ),
                 // Add any other widgets or empty container as needed
                 Container(),
-                SizedBox(width: 45,)
+                const SizedBox(width: 45,)
               ],
             ),
-            SizedBox(height: 40,),
+            const SizedBox(height: 40,),
             Text("${heading!.ceil()}°",
-              style: TextStyle(
+              style: const TextStyle(
                   color: Colors.black,
                   fontSize: 26,
                   fontWeight: FontWeight.bold),),
-            SizedBox(height: 85,),
+            const SizedBox(height: 85,),
             Padding(
-              padding: EdgeInsets.all(18),
+              padding: const EdgeInsets.all(18),
               child: Stack(
                 alignment: Alignment.center,
                 children: [

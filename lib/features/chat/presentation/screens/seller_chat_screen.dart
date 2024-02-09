@@ -47,7 +47,7 @@ class _SellerChatScreenState extends ConsumerState<SellerChatScreen> {
         titleSpacing: 0,
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('lib/images/Fish_Market_7.jpg'), // Replace 'assets/background_image.jpg' with your image asset path
             fit: BoxFit.cover, // Adjust the fit as needed
@@ -56,7 +56,7 @@ class _SellerChatScreenState extends ConsumerState<SellerChatScreen> {
         child: Column(
 
           children: [
-            Expanded(
+            const Expanded(
               child: SellerMessagesList(
               ),
             ),

@@ -100,7 +100,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('lib/images/Fish_Market_3.jpg'), // Replace with your image path
             fit: BoxFit.cover,
@@ -153,7 +153,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         "Register as  : ",
                         style: TextStyle(
                           fontSize: 20,
@@ -163,7 +163,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       DropdownButton<String>(
                         dropdownColor: Colors.blue,
-                        style: TextStyle(),
+                        style: const TextStyle(),
                         isDense: true,
                         isExpanded: false,
                         iconEnabledColor: Colors.black,
@@ -173,7 +173,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             value: dropDownStringItem,
                             child: Text(
                               dropDownStringItem,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Color(0xB3000000),
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20,
@@ -236,7 +236,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       SquareTile(
                           onTap: ()=> AuthService().signInWithGoogle(),
                           imagePath: 'lib/images/google.png'),
-                      SizedBox(width: 25),
+                      const SizedBox(width: 25),
                       // apple button
                       SquareTile(
                           onTap: ()=>{},

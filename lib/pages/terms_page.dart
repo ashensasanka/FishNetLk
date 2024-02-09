@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TermsPage extends StatefulWidget {
@@ -13,21 +12,21 @@ class _TermsPageState extends State<TermsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-      backgroundColor: Color(0xFFD2DCFF),
-      title: Text('Terms & Conditions',
+      backgroundColor: const Color(0xFFD2DCFF),
+      title: const Text('Terms & Conditions',
         style: TextStyle(
             fontWeight: FontWeight.bold
         ),),
       leading: IconButton(
-        icon: Icon(Icons.arrow_back),
+        icon: const Icon(Icons.arrow_back),
         onPressed: () {
           Navigator.pop(context); // This will navigate back when the back button is pressed
         },
       ),
     ),
     body: ListView(
-      padding: EdgeInsets.all(16),
-      children: [
+      padding: const EdgeInsets.all(16),
+      children: const [
         // Each item in the terms and conditions list
         Text(
           '1. Acceptance of Terms',

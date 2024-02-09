@@ -7,13 +7,12 @@ import 'package:geolocator/geolocator.dart';
 import '../features/auth/utils/utils.dart';
 import '../widget/drawer_menu_widget.dart';
 import 'package:fishnetlk/controller/home_controller.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 
 class FavoritesPage extends StatefulWidget{
   final VoidCallback openDrawer;
 
-  FavoritesPage({Key? key, required this.openDrawer}) : super(key: key);
+  const FavoritesPage({Key? key, required this.openDrawer}) : super(key: key);
 
   @override
   State<FavoritesPage> createState() => _FavoritesPageState();
@@ -79,7 +78,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
             ],
           ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('lib/images/Fish_Market.jpg'), // Replace with your image asset path
             fit: BoxFit.cover,
@@ -87,30 +86,30 @@ class _FavoritesPageState extends State<FavoritesPage> {
         ),
         child: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
             width: double.maxFinite,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 40,),
+                const SizedBox(height: 40,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center, // Add this line
                   children: [
                     // Move the DrawerMenuWidget here
                     Container(
-                      margin: EdgeInsets.all(18),
+                      margin: const EdgeInsets.all(18),
                       child: DrawerMenuWidget(
                         onClicked: widget.openDrawer,
                       ),
                     ),
-                    Text(
+                    const Text(
                       'Add a New Log',
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                     ),
                     // Add any other widgets or empty container as needed
                     Container(),
-                    SizedBox(width: 45,)
+                    const SizedBox(width: 45,)
                   ],
                 ),
               TextField(
@@ -119,69 +118,69 @@ class _FavoritesPageState extends State<FavoritesPage> {
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)
                       ),
-                      label: Text('Fish Name'),
+                      label: const Text('Fish Name'),
                       hintText: 'Enter Fish Name'
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 TextField(
                   controller: ctrl.fishQuantityCtrl,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)
                       ),
-                      label: Text('Quantity'),
+                      label: const Text('Quantity'),
                       hintText: 'Enter Fish Quantity'
                   )
                 ),
-                SizedBox(height: 10),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
+                const SizedBox(height: 10),
                 TextField(
                     controller: ctrl.fishingMethodCtrl,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10)
                         ),
-                        label: Text('Method of Fishing'),
+                        label: const Text('Method of Fishing'),
                         hintText: 'Enter Fishing Method'
                     )
                 ),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
                 TextField(
                     controller: ctrl.fishCostCtrl,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10)
                         ),
-                        label: Text('Costs'),
+                        label: const Text('Costs'),
                         hintText: 'Enter Fish Cost'
                     )
                 ),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
                 TextField(
                     controller: ctrl.sellPriceCtrl,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10)
                         ),
-                        label: Text('Selling Price 1kg'),
+                        label: const Text('Selling Price 1kg'),
                         hintText: 'Enter Selling Price'
                     )
                 ),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
                 TextField(
                     controller: ctrl.soldQuantityCtrl,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10)
                         ),
-                        label: Text('Sold Quantity (kg)'),
+                        label: const Text('Sold Quantity (kg)'),
                         hintText: 'Enter Sold Quantity'
                     )
                 ),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
                 Text(locationMessage),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 ElevatedButton(onPressed: (){
                   _getCurrentLocation().then((value) {
                     ctrl.lat = '${value.latitude}';
@@ -194,7 +193,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
                   });
                 },
                     child: const Text('Get Location')),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 LogdayPicker(
                     dateTime: ctrl.logday ?? DateTime.now(),
                     onPressed: () async {
@@ -208,7 +207,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
                       }
                     }
                 ),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.indigoAccent,
@@ -224,7 +223,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
                       ctrl.sellPriceCtrl.clear();
                       ctrl.soldQuantityCtrl.clear();
                       ctrl.fetchLogDetails();
-                    }, child: Text('Update Log'))
+                    }, child: const Text('Update Log'))
               ]
             )
           )

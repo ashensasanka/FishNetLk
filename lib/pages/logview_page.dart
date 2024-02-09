@@ -1,7 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:fishnetlk/controller/home_controller.dart';
 import 'package:fishnetlk/pages/favorites_page.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'logview_info_tile.dart';
@@ -43,13 +42,13 @@ class _WhetherPageState extends State<ViewLogPage> {
     return GetBuilder<HomeController>(builder: (ctrl){
       return Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(0xFFD2DCFF),
-          title: Text('Log View',
+          backgroundColor: const Color(0xFFD2DCFF),
+          title: const Text('Log View',
             style: TextStyle(
                 fontWeight: FontWeight.bold
             ),),
           leading: IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             onPressed: () {
               Navigator.pop(context); // This will navigate back when the back button is pressed
             },
@@ -58,7 +57,7 @@ class _WhetherPageState extends State<ViewLogPage> {
         body: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
-              child: Container(
+              child: SizedBox(
                 height: 605,
                 child: ListView.separated(
                     itemCount: ctrl.logShowUi.length,
@@ -71,13 +70,12 @@ class _WhetherPageState extends State<ViewLogPage> {
             )
           ],
         ),
-        backgroundColor: Color(0xFFE9EFFF),
+        backgroundColor: const Color(0xFFE9EFFF),
         bottomNavigationBar: CurvedNavigationBar(
           backgroundColor: Colors.white,
           color: color,
           animationDuration: const Duration(milliseconds: 300),
           onTap: (index) {
-            print(index);
             if (index == 1) {
               Navigator.push(
                 context,

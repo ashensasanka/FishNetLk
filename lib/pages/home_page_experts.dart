@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePageExperts> {
       Scaffold(
         backgroundColor: Colors.deepPurple,
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('lib/images/Fish_Market_2.jpg'), // Replace with your image asset path
               fit: BoxFit.cover,

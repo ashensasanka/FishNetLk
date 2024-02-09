@@ -55,6 +55,7 @@ class AuthRepository {
       showToastMessage(text: e.toString());
       return null;
     }
+    return null;
   }
 
   // Verify Email

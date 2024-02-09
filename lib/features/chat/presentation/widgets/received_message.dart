@@ -32,7 +32,7 @@ class ReceivedMessage extends ConsumerWidget {
                   bottomRight: Radius.circular(20),
                 ),
               ),
-              child: MessageContents(message: 'message'),
+              child: const MessageContents(message: 'message'),
             ),
           ),
         ],

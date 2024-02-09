@@ -13,7 +13,7 @@ class ExpertsProfilePage extends ConsumerStatefulWidget {
   final VoidCallback openDrawer;
 
 
-  ExpertsProfilePage({Key? key, required this.openDrawer});
+  const ExpertsProfilePage({super.key, required this.openDrawer});
 
   @override
   ConsumerState<ExpertsProfilePage> createState() => _ExpertsProfilePageState();
@@ -35,10 +35,10 @@ class _ExpertsProfilePageState extends ConsumerState<ExpertsProfilePage> {
           ),
           content: TextField(
             autofocus: true,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
             decoration: InputDecoration(
                 hintText: "Enter new $field",
-                hintStyle: TextStyle(color: Colors.grey)
+                hintStyle: const TextStyle(color: Colors.grey)
             ),
             onChanged: (value){
               newValue = value;
@@ -47,16 +47,16 @@ class _ExpertsProfilePageState extends ConsumerState<ExpertsProfilePage> {
           actions: [
             TextButton(
                 onPressed: ()=> Navigator.pop(context),
-                child: Text('Cancel',
+                child: const Text('Cancel',
                   style: TextStyle(color: Colors.white),)),
             TextButton(
                 onPressed: ()=> Navigator.of(context).pop(newValue),
-                child: Text('Save',
+                child: const Text('Save',
                   style: TextStyle(color: Colors.white),)),
           ],
         ));
 
-    if (newValue.trim().length>0){
+    if (newValue.trim().isNotEmpty){
       await userCollection.doc(currentUser.email).update({field: newValue});
     }
   }
@@ -65,7 +65,7 @@ class _ExpertsProfilePageState extends ConsumerState<ExpertsProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('lib/images/Fish_Market_4.jpg'), // Replace with your image asset path
               fit: BoxFit.cover,
@@ -83,13 +83,13 @@ class _ExpertsProfilePageState extends ConsumerState<ExpertsProfilePage> {
                   return SingleChildScrollView(
                     child: Column(
                       children: [
-                        SizedBox(height: 60,),
+                        const SizedBox(height: 60,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              margin: EdgeInsets.all(18),
+                              margin: const EdgeInsets.all(18),
                               child: DrawerMenuWidget(
                                 onClicked: widget.openDrawer,
                               ),
@@ -103,7 +103,7 @@ class _ExpertsProfilePageState extends ConsumerState<ExpertsProfilePage> {
                               },
                             ),
                             // Add any other widgets or empty container as needed
-                            SizedBox(
+                            const SizedBox(
                               width: 90,
                             )
                           ],
@@ -112,19 +112,19 @@ class _ExpertsProfilePageState extends ConsumerState<ExpertsProfilePage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SizedBox(width: 20,),
+                            const SizedBox(width: 20,),
                             Text(
                               userdata['username'],
-                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                             ),
-                            IconButton(onPressed:() => editField('username'), icon: Icon(Icons.edit, size: 20,)),
+                            IconButton(onPressed:() => editField('username'), icon: const Icon(Icons.edit, size: 20,)),
 
                           ],
                         ),
                         const SizedBox(height: 10,),
                         Row(
                           children: [
-                            SizedBox(width: 20,),
+                            const SizedBox(width: 20,),
                             Text('Account Settings',
                               textAlign: TextAlign.center,
                               style: TextStyle(color: Colors.grey[900], fontSize: 20),)
@@ -134,12 +134,12 @@ class _ExpertsProfilePageState extends ConsumerState<ExpertsProfilePage> {
                           text: userdata['bio'],
                           sectionName: 'bio',
                           onPressed: ()=> editField('bio'),),
-                        SizedBox(height: 25,),
+                        const SizedBox(height: 25,),
                         Row(
                           children: [
-                            SizedBox(width: 20,),
-                            Icon(Icons.person_outline, size: 30), // Adjust the size as needed
-                            SizedBox(width: 15), // Add some spacing between the icon and the text
+                            const SizedBox(width: 20,),
+                            const Icon(Icons.person_outline, size: 30), // Adjust the size as needed
+                            const SizedBox(width: 15), // Add some spacing between the icon and the text
                             Text(
                               'Personal information',
                               style: TextStyle(
@@ -147,16 +147,16 @@ class _ExpertsProfilePageState extends ConsumerState<ExpertsProfilePage> {
                                 fontSize: 20, // Adjust the font size as needed
                               ),
                             ),
-                            SizedBox(width: 80),
-                            Icon(Icons.chevron_right, size: 30),
+                            const SizedBox(width: 80),
+                            const Icon(Icons.chevron_right, size: 30),
                           ],
                         ),
                         const Divider(height:30,indent:30,endIndent:30, thickness:2),
                         Row(
                           children: [
-                            SizedBox(width: 20,),
-                            Icon(Icons.book_outlined, size: 30), // Adjust the size as needed
-                            SizedBox(width: 15), // Add some spacing between the icon and the text
+                            const SizedBox(width: 20,),
+                            const Icon(Icons.book_outlined, size: 30), // Adjust the size as needed
+                            const SizedBox(width: 15), // Add some spacing between the icon and the text
                             Text(
                               'Address Book',
                               style: TextStyle(
@@ -164,16 +164,16 @@ class _ExpertsProfilePageState extends ConsumerState<ExpertsProfilePage> {
                                 fontSize: 20, // Adjust the font size as needed
                               ),
                             ),
-                            SizedBox(width: 145),
-                            Icon(Icons.chevron_right, size: 30),
+                            const SizedBox(width: 145),
+                            const Icon(Icons.chevron_right, size: 30),
                           ],
                         ),
                         const Divider(height:30,indent:30,endIndent:30, thickness:2),
                         Row(
                           children: [
-                            SizedBox(width: 20,),
-                            Icon(Icons.notifications_none, size: 30), // Adjust the size as needed
-                            SizedBox(width: 15), // Add some spacing between the icon and the text
+                            const SizedBox(width: 20,),
+                            const Icon(Icons.notifications_none, size: 30), // Adjust the size as needed
+                            const SizedBox(width: 15), // Add some spacing between the icon and the text
                             Text(
                               'Notification',
                               style: TextStyle(
@@ -181,26 +181,26 @@ class _ExpertsProfilePageState extends ConsumerState<ExpertsProfilePage> {
                                 fontSize: 20, // Adjust the font size as needed
                               ),
                             ),
-                            SizedBox(width: 170),
-                            Icon(Icons.chevron_right, size: 30),
+                            const SizedBox(width: 170),
+                            const Icon(Icons.chevron_right, size: 30),
                           ],
                         ),
                         const Divider(height:30,indent:30,endIndent:30, thickness:2),
-                        SizedBox(height: 20,),
+                        const SizedBox(height: 20,),
                         Row(
                           children: [
-                            SizedBox(width: 20,),
+                            const SizedBox(width: 20,),
                             Text('Support',
                               textAlign: TextAlign.center,
                               style: TextStyle(color: Colors.grey[900], fontSize: 20),)
                           ],
                         ),
-                        SizedBox(height: 25,),
+                        const SizedBox(height: 25,),
                         Row(
                           children: [
-                            SizedBox(width: 20,),
-                            Icon(Icons.question_mark_sharp, size: 30), // Adjust the size as needed
-                            SizedBox(width: 15), // Add some spacing between the icon and the text
+                            const SizedBox(width: 20,),
+                            const Icon(Icons.question_mark_sharp, size: 30), // Adjust the size as needed
+                            const SizedBox(width: 15), // Add some spacing between the icon and the text
                             Text(
                               'Get Help',
                               style: TextStyle(
@@ -208,16 +208,16 @@ class _ExpertsProfilePageState extends ConsumerState<ExpertsProfilePage> {
                                 fontSize: 20, // Adjust the font size as needed
                               ),
                             ),
-                            SizedBox(width: 190),
-                            Icon(Icons.chevron_right, size: 30),
+                            const SizedBox(width: 190),
+                            const Icon(Icons.chevron_right, size: 30),
                           ],
                         ),
                         const Divider(height:30,indent:30,endIndent:30, thickness:2),
                         Row(
                           children: [
-                            SizedBox(width: 20,),
-                            Icon(Icons.local_post_office_outlined, size: 30), // Adjust the size as needed
-                            SizedBox(width: 15), // Add some spacing between the icon and the text
+                            const SizedBox(width: 20,),
+                            const Icon(Icons.local_post_office_outlined, size: 30), // Adjust the size as needed
+                            const SizedBox(width: 15), // Add some spacing between the icon and the text
                             Text(
                               'Give us Feedback',
                               style: TextStyle(
@@ -225,26 +225,26 @@ class _ExpertsProfilePageState extends ConsumerState<ExpertsProfilePage> {
                                 fontSize: 20, // Adjust the font size as needed
                               ),
                             ),
-                            SizedBox(width: 110),
-                            Icon(Icons.chevron_right, size: 30),
+                            const SizedBox(width: 110),
+                            const Icon(Icons.chevron_right, size: 30),
                           ],
                         ),
                         const Divider(height:30,indent:30,endIndent:30, thickness:2),
-                        SizedBox(height: 20,),
+                        const SizedBox(height: 20,),
                         Row(
                           children: [
-                            SizedBox(width: 20,),
+                            const SizedBox(width: 20,),
                             Text('Legal',
                               textAlign: TextAlign.center,
                               style: TextStyle(color: Colors.grey[900], fontSize: 20),)
                           ],
                         ),
-                        SizedBox(height: 25,),
+                        const SizedBox(height: 25,),
                         Row(
                           children: [
-                            SizedBox(width: 20,),
-                            Icon(Icons.security_sharp, size: 30), // Adjust the size as needed
-                            SizedBox(width: 15), // Add some spacing between the icon and the text
+                            const SizedBox(width: 20,),
+                            const Icon(Icons.security_sharp, size: 30), // Adjust the size as needed
+                            const SizedBox(width: 15), // Add some spacing between the icon and the text
                             Text(
                               'Term & conditions',
                               style: TextStyle(
@@ -252,15 +252,15 @@ class _ExpertsProfilePageState extends ConsumerState<ExpertsProfilePage> {
                                 fontSize: 20, // Adjust the font size as needed
                               ),
                             ),
-                            SizedBox(width: 110),
+                            const SizedBox(width: 110),
                             InkWell(
                               onTap: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => TermsPage()), // Replace NextPage with your desired page
+                                  MaterialPageRoute(builder: (context) => const TermsPage()), // Replace NextPage with your desired page
                                 );
                               },
-                              child: Icon(
+                              child: const Icon(
                                 Icons.chevron_right,
                                 size: 30,
                               ),
@@ -270,9 +270,9 @@ class _ExpertsProfilePageState extends ConsumerState<ExpertsProfilePage> {
                         const Divider(height:30,indent:30,endIndent:30, thickness:2),
                         Row(
                           children: [
-                            SizedBox(width: 20,),
-                            Icon(Icons.safety_check, size: 30), // Adjust the size as needed
-                            SizedBox(width: 15), // Add some spacing between the icon and the text
+                            const SizedBox(width: 20,),
+                            const Icon(Icons.safety_check, size: 30), // Adjust the size as needed
+                            const SizedBox(width: 15), // Add some spacing between the icon and the text
                             Text(
                               'Privacy policy',
                               style: TextStyle(
@@ -280,15 +280,15 @@ class _ExpertsProfilePageState extends ConsumerState<ExpertsProfilePage> {
                                 fontSize: 20, // Adjust the font size as needed
                               ),
                             ),
-                            SizedBox(width: 150),
+                            const SizedBox(width: 150),
                             InkWell(
                               onTap: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => PrivacyPage()), // Replace NextPage with your desired page
+                                  MaterialPageRoute(builder: (context) => const PrivacyPage()), // Replace NextPage with your desired page
                                 );
                               },
-                              child: Icon(
+                              child: const Icon(
                                 Icons.chevron_right,
                                 size: 30,
                               ),

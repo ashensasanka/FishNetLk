@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 import '../controller/home_controller.dart';
@@ -65,7 +64,7 @@ class _CartCardState extends State<CartCard> {
                         height: 120,
                       ),
                     ),
-                    SizedBox(width: 10), // Add a SizedBox with the desired width between the Expanded widgets
+                    const SizedBox(width: 10), // Add a SizedBox with the desired width between the Expanded widgets
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.only(left: 10),
@@ -74,16 +73,16 @@ class _CartCardState extends State<CartCard> {
                           children: [
                             Text(
                               widget.name,
-                              style: TextStyle(fontSize: 16),
+                              style: const TextStyle(fontSize: 16),
                               overflow: TextOverflow.ellipsis,
                             ),
-                            SizedBox(height: 3,),
+                            const SizedBox(height: 3,),
                             Text(
                               'Rs: ${widget.price}',
-                              style: TextStyle(fontSize: 16),
+                              style: const TextStyle(fontSize: 16),
                               overflow: TextOverflow.ellipsis,
                             ),
-                            SizedBox(height: 3,),
+                            const SizedBox(height: 3,),
                             Container(
                               padding: const EdgeInsets.symmetric(horizontal: 8),
                               decoration: BoxDecoration(
@@ -95,33 +94,33 @@ class _CartCardState extends State<CartCard> {
                                 style: const TextStyle(color: Colors.black, fontSize: 12),
                               ),
                             ),
-                            SizedBox(height: 3,),
+                            const SizedBox(height: 3,),
                             Row(
                               children: [
                                 IconButton(
                                   onPressed: increaseNumber,
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.arrow_circle_up,
                                     size: 24,
                                     color: Colors.blue,
                                   ),
                                 ),
                                 Container(
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     color: Colors.blueAccent,
                                     shape: BoxShape.circle,
                                   ),
-                                  padding: EdgeInsets.all(8),
+                                  padding: const EdgeInsets.all(8),
                                   child: Text(
                                     number.toString(),
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Colors.white,
                                     ),
                                   ),
                                 ),
                                 IconButton(
                                   onPressed: decreaseNumber,
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.arrow_circle_down_sharp,
                                     size: 24,
                                     color: Colors.blue,

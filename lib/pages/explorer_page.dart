@@ -25,7 +25,7 @@ class ExplorerPage extends StatelessWidget {
         },
         child: Scaffold(
           body: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('lib/images/Fish_Market_6.jpg'), // Replace with your image asset path
                 fit: BoxFit.cover,
@@ -33,18 +33,18 @@ class ExplorerPage extends StatelessWidget {
             ),
             child: Column(
               children: [
-                SizedBox(height: 50,),
+                const SizedBox(height: 50,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      margin: EdgeInsets.all(18),
+                      margin: const EdgeInsets.all(18),
                       child: DrawerMenuWidget(
                         onClicked: openDrawer,
                       ),
                     ),
-                    Text(
+                    const Text(
                       'Fish Market',
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                     ),
@@ -54,20 +54,20 @@ class ExplorerPage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => CartPage(index: 1,),
+                              builder: (context) => const CartPage(index: 1,),
                             ),
                           );
-                        }, icon: Icon(
+                        }, icon: const Icon(
                       Icons.shopping_cart,  // Replace with the desired icon
                       size: 24,  // Adjust the size as needed
                       color: Colors.black,  // Adjust the color as needed
                     ),),
-                    SizedBox(
+                    const SizedBox(
                       width: 0,
                     )
                   ],
                 ),
-                SizedBox(height: 110,),
+                const SizedBox(height: 110,),
                 SizedBox(
                   height: 50,
                   child: ListView.builder(
@@ -89,7 +89,7 @@ class ExplorerPage extends StatelessWidget {
                   children: [
                     Flexible(
                       child: DropDownBtn(
-                          items: ['Rs:Low to High', 'Rs:High to Low'],
+                          items: const ['Rs:Low to High', 'Rs:High to Low'],
                           selectedItemText: 'Sort by Price',
                           onSelected: (selected) {
                             ctrl.sortByPrice( ascending: selected == 'Rs:Low to High' ? true:false,);
@@ -98,7 +98,7 @@ class ExplorerPage extends StatelessWidget {
                     ),
                     Flexible(
                         child: MultiSelectDropDown(
-                          items: ['Fish1', 'Fish2', 'Fish3'],
+                          items: const ['Fish1', 'Fish2', 'Fish3'],
                           onSelectionChanged: (selectedItems) {
                             ctrl.filterByBrand(selectedItems);
                           },
@@ -107,7 +107,7 @@ class ExplorerPage extends StatelessWidget {
                 ),
                 Expanded(
                   child: GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
                           childAspectRatio: 0.8,
                           crossAxisSpacing: 8,
@@ -119,14 +119,14 @@ class ExplorerPage extends StatelessWidget {
                           name: ctrl.productShowInUi[index].name ?? 'No name',
                           imageUrl: ctrl.productShowInUi[index].image ?? 'url',
                           price: ctrl.productShowInUi[index].price ?? 00,
-                          icon: Icon(
+                          icon: const Icon(
                                 Icons.shopping_cart,  // Replace with the desired icon
                                 size: 24,  // Adjust the size as needed
                                 color: Colors.black,  // Adjust the color as needed
                               ),
                           offerTag: '20 % off',
                           onTap: () {
-                            Get.to(ProductDescriptionPage(), arguments: {'data':ctrl.productShowInUi[index]});
+                            Get.to(const ProductDescriptionPage(), arguments: {'data':ctrl.productShowInUi[index]});
                           },);
                       }),
                 )

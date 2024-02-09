@@ -28,9 +28,9 @@ class LogViewInfoTile extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text('LogBook of ' + userId.makePostUi[1].fullName.toString()),
+                  Text('LogBook of ${userId.makePostUi[1].fullName}'),
                   const SizedBox(width: 10),
-                  Column(
+                  const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                     ],
@@ -43,39 +43,39 @@ class LogViewInfoTile extends StatelessWidget {
             ),
             Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
-                    child: Text('Date : ' + userId.logShowUi[index].date.toString().split(' ')[0],
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                    child: Text('Date : ${userId.logShowUi[index].date.toString().split(' ')[0]}',
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Text('Name : '+userId.logShowUi[index].name.toString()),
+              child: Text('Name : ${userId.logShowUi[index].name}'),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Text('Method of Fishing : '+userId.logShowUi[index].method.toString()),
+              child: Text('Method of Fishing : ${userId.logShowUi[index].method}'),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Text('Location : '+userId.logShowUi[index].lat.toString()+' , '+userId.logShowUi[index].long.toString()),
+              child: Text('Location : ${userId.logShowUi[index].lat} , ${userId.logShowUi[index].long}'),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Text('Quantity : '+userId.logShowUi[index].quantity.toString()+' kg'),
+              child: Text('Quantity : ${userId.logShowUi[index].quantity} kg'),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Text('All Costs : Rs. '+userId.logShowUi[index].cost.toString()),
+              child: Text('All Costs : Rs. ${userId.logShowUi[index].cost}'),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Text('Selling Price (1kg) : Rs. '+userId.logShowUi[index].sellprice.toString()),
+              child: Text('Selling Price (1kg) : Rs. ${userId.logShowUi[index].sellprice}'),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Text('Quantity sold : Rs. '+userId.logShowUi[index].soldquantity.toString()),
+              child: Text('Quantity sold : Rs. ${userId.logShowUi[index].soldquantity}'),
             ),
-            SizedBox(height: 15,)
+            const SizedBox(height: 15,)
           ],
         ),
       );
@@ -98,7 +98,7 @@ class PostStats extends StatelessWidget {
       children: [
         const RoundLikeIcon(),
         const SizedBox(width: 5),
-        Text('${likes}'),
+        Text('$likes'),
       ],
     );
   }
@@ -134,11 +134,11 @@ class _PostButtonsState extends State<PostButtons> {
             // TODO: Perform any other necessary operations, such as updating the server or local state
           },
         ),
-        IconTextButton(
+        const IconTextButton(
           icon: FontAwesomeIcons.solidMessage,
           label: 'Comment',
         ),
-        IconTextButton(
+        const IconTextButton(
           icon: FontAwesomeIcons.share,
           label: 'Share',
         ),
