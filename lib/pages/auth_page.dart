@@ -36,7 +36,6 @@ class _AuthPageState extends State<AuthPage> {
               );
             }
           }
-
           // User is not logged in
           return LoginOrRegisterPage();
         },

@@ -1,8 +1,5 @@
 import 'package:fishnetlk/controller/home_controller.dart';
-import 'package:fishnetlk/core/screens/loader.dart';
-import 'package:fishnetlk/features/auth/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 
 class ProfileInfo extends StatelessWidget {
@@ -43,5 +40,4 @@ class ProfileInfo extends StatelessWidget {
       );
     });
   }
-
 }

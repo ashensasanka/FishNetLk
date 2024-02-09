@@ -1,15 +1,9 @@
 import 'package:fishnetlk/core/constants/app_colors.dart';
 import 'package:fishnetlk/core/constants/constants.dart';
 import 'package:fishnetlk/core/widgets/round_icon_button.dart';
-// import 'package:fishnetlk/features/chat/presentation/widgets/chats_list.dart';
-// import 'package:fishnetlk/features/chat/presentation/widgets/my_profile_pic.dart';
-// import 'package:fishnetlk/features/story/presentation/screens/create_story_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import '../widgets/chat_tile.dart';
-import '../widgets/chats_list.dart';
 import '../widgets/my_profile_pic.dart';
 
 class ChatsScreen extends StatefulWidget {
@@ -34,14 +28,10 @@ class _ChatsScreenState extends State<ChatsScreen> {
               children: [
     //             // build chats app bar
                 _buildChatsAppBar(),
-    //
                 const SizedBox(height: 20),
-    //
     //             // Search widget
                 _buildChatsSearchWidget(),
-    //
                 const SizedBox(height: 30),
-    //
     //             // Chats List
                 SizedBox(
                   height: 70,
@@ -74,9 +64,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
           const Spacer(),
           RoundIconButton(
             icon: FontAwesomeIcons.camera,
-            onPressed: () {
-              // Navigator.of(context).pushNamed(CreateStoryScreen.routeName);
-            },
+            onPressed: () {},
           )
         ],
       );

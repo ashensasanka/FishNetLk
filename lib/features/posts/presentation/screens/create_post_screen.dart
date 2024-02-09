@@ -1,24 +1,4 @@
-// import 'package:flutter/cupertino.dart';
-//
-// class CreatePostScreen extends StatefulWidget {
-//   const CreatePostScreen({super.key});
-//
-//   static const routeName = '/create-post';
-//
-//   @override
-//   State<CreatePostScreen> createState() => _CreatePostScreenState();
-// }
-//
-// class _CreatePostScreenState extends State<CreatePostScreen> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Placeholder();
-//   }
-// }
-
-
 import 'dart:io';
-
 import 'package:fishnetlk/controller/home_controller.dart';
 import 'package:fishnetlk/core/constants/app_colors.dart';
 import 'package:fishnetlk/core/constants/constants.dart';
@@ -26,11 +6,9 @@ import 'package:fishnetlk/core/utils/utils.dart';
 import 'package:fishnetlk/core/widgets/round_button.dart';
 import 'package:fishnetlk/features/posts/presentation/widgets/image_video_view.dart';
 import 'package:fishnetlk/features/posts/presentation/widgets/profile_info.dart';
-import 'package:fishnetlk/features/posts/providers/posts_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
-
 import '../../../../core/screens/home_screen.dart';
 import '../../../../widget/drop_down_btn.dart';
 
@@ -71,17 +49,20 @@ class _CreatePostScreenState extends ConsumerState<CreatePostScreen> {
                     SizedBox(width: 15,),
                     Flexible(
                         child: Text('Challenge From',
-                          style: TextStyle(fontSize: 19),)),
+                                    style: TextStyle(
+                                        fontSize: 19),
+                        )
+                    ),
                     SizedBox(width: 30,),
                     Flexible(
-                        child: DropDownBtn(
-                          items: ['Experts', 'Government Agencies'],
-                          selectedItemText: ctrl.from,
-                          onSelected: (selectedValue) {
-                            ctrl.from = selectedValue ?? 'From';
-                            ctrl.update();
-                          },
-                        )),
+                      child: DropDownBtn(
+                        items: ['Experts', 'Government Agencies'],
+                        selectedItemText: ctrl.from,
+                        onSelected: (selectedValue) {
+                          ctrl.from = selectedValue ?? 'From';
+                          ctrl.update();
+                        },
+                      )),
                   ],
                 ),
                 SizedBox(height: 15,),

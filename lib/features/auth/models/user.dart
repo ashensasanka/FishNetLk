@@ -1,4 +1,3 @@
-
 import 'package:fishnetlk/core/constants/firebase_field_names.dart';
 import 'package:flutter/foundation.dart' show immutable;
 

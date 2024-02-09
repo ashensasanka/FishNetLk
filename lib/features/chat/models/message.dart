@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart' show immutable;
-
 import '/core/constants/firebase_field_names.dart';
 
+// Send the messages to database
 @immutable
 class Message {
   final String message;

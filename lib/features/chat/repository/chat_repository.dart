@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fishnetlk/core/constants/firebaes_collection_names.dart';
 import 'package:fishnetlk/core/constants/firebase_field_names.dart';

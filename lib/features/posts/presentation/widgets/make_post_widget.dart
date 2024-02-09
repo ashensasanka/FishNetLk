@@ -2,7 +2,6 @@ import 'package:fishnetlk/features/posts/presentation/screens/create_post_screen
 import 'package:fishnetlk/features/posts/presentation/widgets/round_profile_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import '/core/constants/app_colors.dart';
 import '/core/constants/constants.dart';
 

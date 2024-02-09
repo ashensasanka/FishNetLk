@@ -92,6 +92,5 @@ class InitialPage extends StatelessWidget {
             child: Icon(Icons.add),
           ),
         );
-
       });
 }

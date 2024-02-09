@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '/features/posts/presentation/widgets/network_video_view.dart';
 
 class PostImageVideoView extends StatelessWidget {

@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fishnetlk/core/constants/firebaes_collection_names.dart';
 import 'package:fishnetlk/core/constants/storage_folder_names.dart';
@@ -8,6 +7,7 @@ import 'package:fishnetlk/features/auth/models/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
+//Author model creation
 class AuthRepository {
   final _storage = FirebaseStorage.instance;
   final _firestore = FirebaseFirestore.instance;

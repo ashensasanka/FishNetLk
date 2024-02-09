@@ -1,13 +1,11 @@
 import 'dart:async';
 import 'dart:math';
-
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 const pal = [0xFFF2387C, 0xFF05C7F2, 0xFF04D9C4, 0xFFF2B705, 0xFFF26241];
 class ViewGraphPage extends StatelessWidget {
-
 
   final List<DataItem> dataset = [
     DataItem(0.2, "Quantity Sold ", Color(pal[0])),
@@ -16,10 +14,8 @@ class ViewGraphPage extends StatelessWidget {
     DataItem(0.05, "Loss", Color(pal[3])),
     DataItem(0.2, "Expenses", Color(pal[4])),
   ];
-
   Color color = const Color(0xff004BFE);
 
-  // @override
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,15 +56,6 @@ class ViewGraphPage extends StatelessWidget {
         ],
         index: 2, // Set the initial index to 1
       ),
-      // body: SfCircularChart(
-      //     tooltipBehavior: _tooltip,
-      //     series: <CircularSeries<_ChartData, String>>[
-      //       DoughnutSeries<_ChartData, String>(
-      //           dataSource: data,
-      //           xValueMapper: (_ChartData data, _) => data.x,
-      //           yValueMapper: (_ChartData data, _) => data.y,
-      //           name: 'Gold')
-      //     ]),
       body: Stack(
         children: [
           // Background image
@@ -89,8 +76,6 @@ class ViewGraphPage extends StatelessWidget {
           ),
         ],
       ),
-
-
     );
   }
 }

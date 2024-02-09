@@ -1,14 +1,9 @@
-
-
-// ignore_for_file: avoid_print
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fishnetlk/services/auth_services.dart';
 import 'package:flutter/material.dart';
 import 'package:fishnetlk/components/my_button.dart';
 import 'package:fishnetlk/components/my_textfield.dart';
 import 'package:fishnetlk/components/square_tile.dart';
-
 import 'forgot_pw_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -87,18 +82,14 @@ class _LoginPageState extends State<LoginPage> {
                     hintText: 'Email',
                     obscureText: false,
                   ),
-
                   const SizedBox(height: 10),
-
                   // password textfield
                   MyTextField(
                     controller: passwordController,
                     hintText: 'Password',
                     obscureText: true,
                   ),
-
                   const SizedBox(height: 10),
-
                   // forgot password?
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -126,17 +117,13 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ),
                   ),
-
                   const SizedBox(height: 25),
-
                   // sign in button
                   MyButton(
                     text: 'Sign In',
                     onTap: signUserIn,
                   ),
-
                   const SizedBox(height: 30),
-
                   // or continue with
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -164,9 +151,7 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ),
                   ),
-
                   const SizedBox(height: 40),
-
                   // google + apple sign in buttons
                    Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -177,16 +162,13 @@ class _LoginPageState extends State<LoginPage> {
                           imagePath: 'lib/images/google.png'),
 
                       SizedBox(width: 25),
-
                       // apple button
                       SquareTile(
                           onTap: ()=>{},
                           imagePath: 'lib/images/apple.png')
                     ],
                   ),
-
                   const SizedBox(height: 20),
-
                   // not a member? register now
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

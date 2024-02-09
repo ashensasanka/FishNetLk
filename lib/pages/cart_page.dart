@@ -3,8 +3,6 @@ import 'package:fishnetlk/pages/product_description_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../widget/product_card.dart';
 import 'cart_card.dart';
 
 class CartPage extends StatefulWidget {
@@ -35,7 +33,6 @@ class _CartPageState extends State<CartPage> {
               children: [
                 SizedBox(height: 60,),
                 Row(
-                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(width: 10,),

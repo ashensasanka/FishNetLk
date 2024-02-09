@@ -1,12 +1,9 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:fishnetlk/controller/home_controller.dart';
 import 'package:fishnetlk/pages/favorites_page.dart';
-import 'package:fishnetlk/pages/home_page.dart';
-import 'package:fishnetlk/pages/setting_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'logview_info_tile.dart';
 
 class ViewLogPage extends StatefulWidget {

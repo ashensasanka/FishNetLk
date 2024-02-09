@@ -1,11 +1,8 @@
 import 'package:fishnetlk/controller/home_controller.dart';
 import 'package:fishnetlk/features/chat/presentation/widgets/message_contents.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
-
 import '/core/constants/app_colors.dart';
-import '/features/chat/models/message.dart';
 
 class SentMessage extends StatelessWidget {
   final String message;
@@ -58,6 +55,5 @@ class SentMessage extends StatelessWidget {
         ),
       );
     });
-
   }
 }

@@ -37,8 +37,5 @@ class DrawerWidget extends StatelessWidget{
             )
         )
         .toList(),
-
   );
-
-
 }

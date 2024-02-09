@@ -1,15 +1,9 @@
 import 'package:fishnetlk/core/constants/app_colors.dart';
-import 'package:fishnetlk/features/auth/providers/get_user_info_by_id_provider.dart';
-import 'package:fishnetlk/features/chat/presentation/screens/chats_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
-
 import '../../../../controller/home_controller.dart';
-import '../../../auth/providers/get_user_info_by_id_provider.dart';
 import '../screens/chat_screen.dart';
 import '/core/constants/extensions.dart';
-// import '/features/chat/presentation/screens/chat_screen.dart';
 
 class ChatTile extends StatelessWidget {
   const ChatTile({
@@ -44,13 +38,11 @@ class ChatTile extends StatelessWidget {
           },
           child: Row(
             children: [
-              // Profile Pic
+              // Profile Picture
               CircleAvatar(
                 radius: 30,
                 backgroundImage: NetworkImage(ctrl.makePostUi[1].image as String),
               ),
-              // const SizedBox(width: 10),
-              // Column (Name + Last Message + Last Message Timetstamp)
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,6 +93,5 @@ class ChatTile extends StatelessWidget {
         ),
       );
     });
-
   }
 }

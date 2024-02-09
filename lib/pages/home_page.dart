@@ -1,4 +1,3 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fishnetlk/data/drawer_items.dart';
 import 'package:fishnetlk/model/drawer_item.dart';
@@ -6,13 +5,10 @@ import 'package:fishnetlk/pages/profile_page.dart';
 import 'package:fishnetlk/pages/setting_page.dart';
 import 'package:fishnetlk/widget/drawer_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
-
 import '../features/auth/presentation/screens/create_account_screee.dart';
 import 'explorer_page.dart';
 import 'favorites_page.dart';
 import 'initial_page.dart';
-import 'message_page.dart';
 
 class HomePage extends StatefulWidget{
    const HomePage({Key? key}) : super(key:key);
@@ -23,13 +19,11 @@ class HomePage extends StatefulWidget{
 
 class _HomePageState extends State<HomePage> {
 
-
   late double xOffset ;
   late double yOffset ;
   late double scalerFactor ;
   late bool isDrawerOpen;
   DrawerItem item = DrawerItems.explore;
-
 
   @override
   void initState(){
@@ -86,7 +80,6 @@ class _HomePageState extends State<HomePage> {
                     setState(() => this.item = item);
                     closeDrawer();
                 }
-
               },
             ),
           ));
@@ -120,11 +113,8 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-
-
   Widget getDrawerPage() {
     switch (item){
-
       case DrawerItems.favorites:
         return FavoritesPage(openDrawer: openDrawer);
       case DrawerItems.message:

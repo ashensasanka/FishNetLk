@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-
 import '/core/constants/app_colors.dart';
 import '/core/constants/extensions.dart';
 
+//Pick the birth day in create account screen
 class BirthdayPicker extends StatelessWidget {
   const BirthdayPicker({
     super.key,

@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fishnetlk/pages/privacy_page.dart';
@@ -371,7 +370,6 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                   child: CircularProgressIndicator(),
                 );
               }
-
           ),
         )
     );

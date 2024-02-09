@@ -1,15 +1,12 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:fishnetlk/pages/logview_page.dart';
 import 'package:fishnetlk/pages/view_graph_page.dart';
-import 'package:fishnetlk/pages/whether.dart';
 import 'package:fishnetlk/widget/logday_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import '../features/auth/utils/utils.dart';
 import '../widget/drawer_menu_widget.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:fishnetlk/controller/home_controller.dart';
-import 'package:fishnetlk/widget/drop_down_btn.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 
@@ -50,7 +47,6 @@ class _FavoritesPageState extends State<FavoritesPage> {
             color: color,
             animationDuration: const Duration(milliseconds: 300),
             onTap: (index){
-              // print(index);
               if (index == 1) {
                 Navigator.push(
                   context,
@@ -139,8 +135,6 @@ class _FavoritesPageState extends State<FavoritesPage> {
                   )
                 ),
                 SizedBox(height: 10),
-
-
                 SizedBox(height: 10),
                 TextField(
                     controller: ctrl.fishingMethodCtrl,

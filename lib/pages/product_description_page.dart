@@ -1,13 +1,10 @@
 import 'package:fishnetlk/model/product/product.dart';
 import 'package:fishnetlk/pages/card_form_screen.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-
 import '../core/widgets/round_icon_button.dart';
-import '../features/chat/presentation/screens/chats_screen.dart';
 import '../features/chat/presentation/screens/seller_chat_screen.dart';
 
 class ProductDescriptionPage extends StatelessWidget {

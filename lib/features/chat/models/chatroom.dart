@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart' show immutable;
-
 import '/core/constants/firebase_field_names.dart';
 
+// Reques the access of fields in the database
 @immutable
 class Chatroom {
   final String chatroomId;

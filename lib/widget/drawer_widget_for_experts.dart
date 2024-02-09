@@ -1,7 +1,5 @@
-import 'package:fishnetlk/data/drawer_items.dart';
 import 'package:flutter/material.dart';
 import '../data/drawer_items_for_experts.dart';
-import '../model/drawer_item.dart';
 import '../model/drawer_item_for_experts.dart';
 
 class ExpertsDrawerWidget extends StatelessWidget{
@@ -39,8 +37,5 @@ class ExpertsDrawerWidget extends StatelessWidget{
             )
         )
         .toList(),
-
   );
-
-
 }

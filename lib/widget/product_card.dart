@@ -1,8 +1,6 @@
-import 'package:fishnetlk/pages/cart_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
-
 import '../controller/home_controller.dart';
 
 class ProductCard extends StatelessWidget {
@@ -86,7 +84,6 @@ class ProductCard extends StatelessWidget {
                           ),
                         ),
                       )
-
                     ],
                   ),
                 )

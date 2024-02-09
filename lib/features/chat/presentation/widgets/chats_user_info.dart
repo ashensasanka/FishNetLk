@@ -1,10 +1,6 @@
 import 'package:fishnetlk/controller/home_controller.dart';
 import 'package:fishnetlk/core/constants/app_colors.dart';
-import 'package:fishnetlk/core/screens/error_screen.dart';
-import 'package:fishnetlk/core/screens/loader.dart';
-import 'package:fishnetlk/features/auth/providers/get_user_info_by_id_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 
 class ChatUserInfo extends StatelessWidget {
@@ -48,6 +44,7 @@ class ChatUserInfo extends StatelessWidget {
             ),
           ],
         );
-      },);
+      },
+    );
   }
 }

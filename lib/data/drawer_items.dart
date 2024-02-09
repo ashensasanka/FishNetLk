@@ -1,8 +1,8 @@
 import 'package:fishnetlk/model/drawer_item.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:fishnetlk/model/drawer_item.dart';
 
+// Drawer items
 class DrawerItems {
   static const explore = DrawerItem(title: 'Market', icon: Icons.explore, iconSize: 10);
   static const home = DrawerItem(title: 'Listing Admin', icon: FontAwesomeIcons.home, iconSize: 10);

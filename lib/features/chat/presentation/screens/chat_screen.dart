@@ -1,17 +1,10 @@
 import 'package:fishnetlk/controller/home_controller.dart';
 import 'package:fishnetlk/core/constants/app_colors.dart';
-import 'package:fishnetlk/core/screens/loader.dart';
 import 'package:fishnetlk/core/utils/utils.dart';
-// import 'package:fishnetlk/features/chat/presentation/widgets/chats_user_info.dart';
-// import 'package:fishnetlk/features/chat/presentation/widgets/messages_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-// import 'package:fishnetlk/features/chat/providers/chat_provider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
-
 import '../../providers/chat_provider.dart';
 import '../widgets/chats_user_info.dart';
 import '../widgets/messages_list.dart';
@@ -76,44 +69,6 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
               ),
 
     );
-    // return FutureBuilder(
-    //   future: ref.watch(chatProvider).createChatroom(userId: widget.userId),
-    //   builder: (context, snapshot) {
-    //     if (snapshot.connectionState == ConnectionState.waiting) {
-    //       return const Loader();
-    //     }
-    //
-    //     chatroomId = snapshot.data ?? 'No chatroom Id';
-    //
-    //     return Scaffold(
-    //       backgroundColor: AppColors.realWhiteColor,
-    //       appBar: AppBar(
-    //         leading: IconButton(
-    //           onPressed: Navigator.of(context).pop,
-    //           icon: const Icon(
-    //             Icons.arrow_back_ios,
-    //             color: AppColors.messengerBlue,
-    //           ),
-    //         ),
-    //         titleSpacing: 0,
-    //         title: ChatUserInfo(
-    //           userId: widget.userId,
-    //         ),
-    //       ),
-    //       body: Column(
-    //         children: [
-    //           Expanded(
-    //             child: MessagesList(
-    //               chatroomId: chatroomId,
-    //             ),
-    //           ),
-    //           const Divider(),
-    //           _buildMessageInput(),
-    //         ],
-    //       ),
-    //     );
-    //   },
-    // );
   }
 
   // Chat Text Field
@@ -187,12 +142,6 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
               onPressed: () {
                 ctrl.addMessage();
                 ctrl.fetchMessage();
-                // Add functionality to handle send button press
-                // await ref.read(chatProvider).sendMessage(
-                //   message: messageController.text,
-                //   chatroomId: chatroomId,
-                //   receiverId: widget.userId,
-                // );
                 ctrl.messageController.clear();
               },
             ),
@@ -200,7 +149,5 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
         ),
       );
     });
-
-
   }
 }

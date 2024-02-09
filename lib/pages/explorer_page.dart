@@ -5,11 +5,8 @@ import 'package:fishnetlk/widget/multi_select_drop_down.dart';
 import 'package:fishnetlk/widget/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import '../widget/drawer_menu_widget.dart';
 import 'cart_page.dart';
-import 'home_page.dart';
-import 'login_page.dart';
 
 class ExplorerPage extends StatelessWidget {
   final VoidCallback openDrawer;
@@ -102,7 +99,6 @@ class ExplorerPage extends StatelessWidget {
                     Flexible(
                         child: MultiSelectDropDown(
                           items: ['Fish1', 'Fish2', 'Fish3'],
-                          // items: ['item1', 'item2', 'item3'],
                           onSelectionChanged: (selectedItems) {
                             ctrl.filterByBrand(selectedItems);
                           },

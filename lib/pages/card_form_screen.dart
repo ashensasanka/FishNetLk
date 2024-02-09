@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class CardFormScreen extends StatelessWidget {
   const CardFormScreen({
     Key? key,
@@ -23,5 +22,5 @@ class CardFormScreen extends StatelessWidget {
               ),
             )
     );
-          }
+  }
 }

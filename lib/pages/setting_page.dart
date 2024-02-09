@@ -1,27 +1,9 @@
 import 'dart:math';
-
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:fishnetlk/pages/whether.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_compass/flutter_compass.dart';
 import '../widget/drawer_menu_widget.dart';
-
-// class SettingsPage extends StatelessWidget{
-//   final VoidCallback openDrawer;
-//
-//   const SettingsPage({
-//     Key? key,
-//     required this.openDrawer
-//   }) : super(key: key);
-//   @override
-//   Widget build(BuildContext context) => Scaffold(
-//     appBar: AppBar(
-//       backgroundColor: Colors.orange,
-//       leading: DrawerMenuWidget(onClicked: openDrawer),
-//       title: Text('Settings Page'),
-//     ),
-//   );
-// }
 
 class SettingsPage extends StatefulWidget {
   final VoidCallback openDrawer;
@@ -52,17 +34,20 @@ class _SettingsPageState extends State<SettingsPage> {
     Icon(Icons.people, size: 30,),
     Icon(Icons.person, size: 30,),
   ];
+
   int index = 1;
   late double xOffset ;
   late double yOffset ;
   late double scalerFactor ;
   late bool isDrawerOpen;
+
   void openDrawer() => setState(() {
     xOffset = 230;
     yOffset = 150;
     scalerFactor = 0.6;
     isDrawerOpen = true;
   });
+
   @override
   void dispose() {
     // Cancel any ongoing async operations here
@@ -142,7 +127,8 @@ class _SettingsPageState extends State<SettingsPage> {
                   Transform.rotate(angle: ((heading ?? 0) * (pi/180)* -1),
                     child: Image.asset('lib/images/compass.jpg', scale: 1.3,),)
                 ],
-              ),)
+              ),
+            )
           ],
         ),
       ),

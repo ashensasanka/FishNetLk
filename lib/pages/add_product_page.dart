@@ -1,4 +1,3 @@
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:fishnetlk/controller/home_controller.dart';
 import 'package:fishnetlk/widget/drop_down_btn.dart';
 import 'package:flutter/cupertino.dart';

@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import '../components/my_textfield.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
@@ -56,17 +55,13 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
             style: TextStyle(fontSize: 20),
             ),
           ),
-
           SizedBox(height: 20),
-
           MyTextField(
             controller: emailController,
             hintText: 'Email',
             obscureText: false,
           ),
-
           SizedBox(height: 20),
-
           MaterialButton(
             onPressed: passwordReset,
             child: Text('Reset Password'),

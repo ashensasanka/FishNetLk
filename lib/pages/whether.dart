@@ -1,5 +1,4 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:fishnetlk/pages/setting_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -85,15 +84,6 @@ class _WhetherPageState extends State<WhetherPage> {
               ),
             );
           }
-          // else if (index == 0) {
-          //   Navigator.push(
-          //     context,
-          //     MaterialPageRoute(
-          //       builder: (context) =>
-          //           SettingsPage(openDrawer: openDrawer), // Replace with your WeatherPage widget
-          //     ),
-          //   );
-          // }
         },
         items: const [
           Icon(

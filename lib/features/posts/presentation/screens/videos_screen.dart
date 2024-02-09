@@ -1,6 +1,5 @@
 import 'package:fishnetlk/core/screens/error_screen.dart';
 import 'package:fishnetlk/core/screens/loader.dart';
-import 'package:fishnetlk/features/posts/presentation/widgets/post_tile.dart';
 import 'package:fishnetlk/features/posts/providers/get_all_videos_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -18,8 +17,6 @@ class VideosScreen extends ConsumerWidget {
           itemCount: postsList.length,
           separatorBuilder: (context, index) => const SizedBox(height: 8),
           itemBuilder: (context, index) {
-            final post = postsList.elementAt(index);
-            // return PostTile(post: post);
           },
         );
       },

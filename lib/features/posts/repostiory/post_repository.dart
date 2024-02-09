@@ -1,9 +1,7 @@
 import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fishnetlk/core/constants/firebaes_collection_names.dart';
 import 'package:fishnetlk/core/constants/firebase_field_names.dart';
-// import 'package:fishnetlk/features/posts/models/comment.dart';
 import 'package:fishnetlk/features/posts/models/post.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -87,38 +85,6 @@ class PostRepository {
       return e.toString();
     }
   }
-
-  // make comment
-  // Future<String?> makeComment({
-  //   required String text,
-  //   required String postId,
-  // }) async {
-  //   try {
-  //     final commentId = const Uuid().v1();
-  //     final authorId = _auth.currentUser!.uid;
-  //     final now = DateTime.now();
-  //
-  //     // Create our post
-  //     Comment comment = Comment(
-  //       commentId: commentId,
-  //       authorId: authorId,
-  //       postId: postId,
-  //       text: text,
-  //       createdAt: now,
-  //       likes: const [],
-  //     );
-  //
-  //     // Post to firestore
-  //     _firestore
-  //         .collection(FirebaseCollectionNames.comments)
-  //         .doc(commentId)
-  //         .set(comment.toMap());
-  //
-  //     return null;
-  //   } catch (e) {
-  //     return e.toString();
-  //   }
-  // }
 
   // Like a post
   Future<String?> likeDislikeComment({
