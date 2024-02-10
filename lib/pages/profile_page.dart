@@ -8,6 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../components/text_box.dart';
 import '../core/widgets/pick_image_widget.dart';
 import '../widget/drawer_menu_widget.dart';
+import 'my_orders_page.dart';
 
 class ProfilePage extends ConsumerStatefulWidget {
   final VoidCallback openDrawer;
@@ -236,14 +237,25 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             const Icon(Icons.gif_box_outlined, size: 30), // Adjust the size as needed
                             const SizedBox(width: 15), // Add some spacing between the icon and the text
                             Text(
-                              'My Order',
+                              'My Orders',
                               style: TextStyle(
                                 color: Colors.grey[600],
                                 fontSize: 20, // Adjust the font size as needed
                               ),
                             ),
                             const SizedBox(width: 190),
-                            const Icon(Icons.chevron_right, size: 30),
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => MyOrdersPage()), // Replace NextPage with your desired page
+                                );
+                              },
+                              child: const Icon(
+                                Icons.chevron_right,
+                                size: 30,
+                              ),
+                            )
                           ],
                         ),
                         const Divider(height:30,indent:30,endIndent:30, thickness:2),
