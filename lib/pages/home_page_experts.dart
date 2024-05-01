@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../data/drawer_items_for_experts.dart';
-import '../features/auth/presentation/screens/create_account_screee.dart';
+import '../features/auth/presentation/screens/experts_post_screee.dart';
 import '../model/drawer_item_for_experts.dart';
 import '../widget/drawer_widget_for_experts.dart';
 import 'experts_profile_page.dart';
@@ -116,7 +116,7 @@ class _HomePageState extends State<HomePageExperts> {
       case ExpertsDrawerItems.profile:
         return ExpertsProfilePage(openDrawer: openDrawer);
       default:
-        return CreateAccountScreen(openDrawer: openDrawer);
+        return ExpertsPostScreen(openDrawer: openDrawer);
     }
   }
 }

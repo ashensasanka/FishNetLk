@@ -24,6 +24,9 @@ class PostDetails {
   @JsonKey(name:"email")
   String? email;
 
+  @JsonKey(name:"createDay")
+  DateTime? createDay;
+
   PostDetails({
     this.id,
     this.image,
@@ -31,7 +34,8 @@ class PostDetails {
     this.filetype,
     this.from,
     this.title,
-    this.email
+    this.email,
+    this.createDay
   });
 
   factory PostDetails.fromJson(Map<String, dynamic> json) => _$PostDetailsFromJson(json);

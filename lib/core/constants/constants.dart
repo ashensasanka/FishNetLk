@@ -41,12 +41,6 @@ class Constants {
           color: Colors.blue,
         ),
       ),
-      Tab(
-        icon: Icon(
-          index == 5 ? Icons.density_medium : Icons.density_medium_outlined,
-          color: Colors.blue,
-        ),
-      ),
     ];
   }
 
@@ -55,7 +49,6 @@ class Constants {
     Center(child: Text('Friends Screen'),),
     Center(child: Text('Videos Screen'),),
     Center(child: Text('Profile Screen'),),
-    Center(child: Text('Settings Screen'),),
   ];
 
   Constants._();

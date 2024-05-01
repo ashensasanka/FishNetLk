@@ -98,7 +98,7 @@ class HomeController extends GetxController{
   @override
   void onInit() async {
     // TODO: implement onInit
-    productCollection = firestore.collection('fishnetlk');
+    productCollection = firestore.collection('product');
     categoryCollection = firestore.collection('category');
     logdetailsCollection = firestore.collection('logdetails');
     chatlogCollection = firestore.collection('chatlogdetails');
@@ -180,7 +180,8 @@ class HomeController extends GetxController{
         image: imageUrl, // Add this field to your ChatDetails model
         from: from,
         title: challengeTitleCtrl.text,
-        email: challengeEmailCtrl.text
+        email: challengeEmailCtrl.text,
+        createDay: DateTime.now()
       );
 
       final Map<String, dynamic> postdetailsJson = postdetails.toJson();
@@ -280,8 +281,20 @@ class HomeController extends GetxController{
   }
 
   // Add product details into product collection
-  addProduct(){
+  addProduct(File? selectedImage, String filetype)async{
     try {
+      if (selectedImage == null) {
+        Get.snackbar('Error', 'Please select an image', colorText: Colors.red);
+        return;
+      }
+      final imagePath = 'product/product${DateTime.now().millisecondsSinceEpoch}';
+      final Reference storageReference = storage.ref().child(imagePath);
+
+      // Specify content type as 'image/jpeg'
+      final metadata = SettableMetadata(contentType: filetype);
+
+      await storageReference.putFile(selectedImage, metadata);
+      final String imageUrl = await storageReference.getDownloadURL();
       DocumentReference doc = productCollection.doc();
       Product product = Product(
             id:doc.id,
@@ -290,7 +303,7 @@ class HomeController extends GetxController{
             description: productDescriptionCtrl.text,
             price: double.tryParse(productPriceCtrl.text),
             brand: brand,
-            image: productImgCtrl.text,
+            image: imageUrl,
             offer: offer,
           );
       final productJson = product.toJson();
@@ -472,6 +485,15 @@ class HomeController extends GetxController{
   deleteProduct(String id) async {
     try {
       await productCollection.doc(id).delete();
+      fetchProducts();
+    } catch (e) {
+      Get.snackbar('Error', e.toString(), colorText: Colors.red);
+    }
+  }
+
+  deleteLog(String id) async {
+    try {
+      await logdetailsCollection.doc(id).delete();
       fetchProducts();
     } catch (e) {
       Get.snackbar('Error', e.toString(), colorText: Colors.red);

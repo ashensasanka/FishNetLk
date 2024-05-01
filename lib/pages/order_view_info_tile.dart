@@ -47,7 +47,7 @@ class OrdersViewInfoTile extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Text('Date : ${userId.logShowUi[index].date.toString().split(' ')[0]}',
+              child: Text('Date : ${DateTime.now().toString().split(' ')[0]}',
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
             ),

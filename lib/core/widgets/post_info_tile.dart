@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fishnetlk/core/constants/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -14,6 +16,9 @@ class PostInfoTile extends StatelessWidget {
     Key? key,
     required this.index
   }) : super(key: key);
+
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final User? user = FirebaseAuth.instance.currentUser;
 
   @override
   Widget build(BuildContext context) {
@@ -34,22 +39,41 @@ class PostInfoTile extends StatelessWidget {
                     GestureDetector(
                       onTap: () {},
                       child: CircleAvatar(
-                        backgroundImage: NetworkImage(userId.makePostUi[1].image as String),
+                        backgroundImage: NetworkImage('https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg'),
                       ),
                     ),
                     const SizedBox(width: 10),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          userId.makePostUi[1].fullName as String,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                          ),
+                        StreamBuilder<DocumentSnapshot>(
+                          stream: _firestore
+                              .collection('Users')
+                              .doc(user?.email)
+                              .snapshots(),
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.waiting) {
+                              return Center(child: CircularProgressIndicator());
+                            }
+                            if (snapshot.hasError) {
+                              return Center(
+                                  child: Text('Error: ${snapshot.error}'));
+                            }
+                            final DocumentSnapshot document = snapshot.data!;
+                            final Map<String, dynamic> data =
+                            document.data() as Map<String, dynamic>;
+                            return Text(
+                              '${data['username']}',
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            );
+                          },
                         ),
                         Text(
-                          userId.makePostUi[1].birthDay!.fromNow(),
+                          userId.postdetails[index].createDay!.fromNow(),
                           style: const TextStyle(
                             fontSize: 14,
                             color: Colors.grey,

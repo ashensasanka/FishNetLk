@@ -152,57 +152,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             const Icon(Icons.chevron_right, size: 30),
                           ],
                         ),
-                        const Divider(height:30,indent:30,endIndent:30, thickness:2),
-                        Row(
-                          children: [
-                            const SizedBox(width: 20,),
-                            const Icon(Icons.book_outlined, size: 30), // Adjust the size as needed
-                            const SizedBox(width: 15), // Add some spacing between the icon and the text
-                            Text(
-                              'Address Book',
-                              style: TextStyle(
-                                color: Colors.grey[600],
-                                fontSize: 20, // Adjust the font size as needed
-                              ),
-                            ),
-                            const SizedBox(width: 145),
-                            const Icon(Icons.chevron_right, size: 30),
-                          ],
-                        ),
-                        const Divider(height:30,indent:30,endIndent:30, thickness:2),
-                        Row(
-                          children: [
-                            const SizedBox(width: 20,),
-                            const Icon(Icons.payment, size: 30), // Adjust the size as needed
-                            const SizedBox(width: 15), // Add some spacing between the icon and the text
-                            Text(
-                              'Payment Option',
-                              style: TextStyle(
-                                color: Colors.grey[600],
-                                fontSize: 20, // Adjust the font size as needed
-                              ),
-                            ),
-                            const SizedBox(width: 130),
-                            const Icon(Icons.chevron_right, size: 30),
-                          ],
-                        ),
-                        const Divider(height:30,indent:30,endIndent:30, thickness:2),
-                        Row(
-                          children: [
-                            const SizedBox(width: 20,),
-                            const Icon(Icons.notifications_none, size: 30), // Adjust the size as needed
-                            const SizedBox(width: 15), // Add some spacing between the icon and the text
-                            Text(
-                              'Notification',
-                              style: TextStyle(
-                                color: Colors.grey[600],
-                                fontSize: 20, // Adjust the font size as needed
-                              ),
-                            ),
-                            const SizedBox(width: 170),
-                            const Icon(Icons.chevron_right, size: 30),
-                          ],
-                        ),
+
                         const Divider(height:30,indent:30,endIndent:30, thickness:2),
                         const SizedBox(height: 20,),
                         Row(

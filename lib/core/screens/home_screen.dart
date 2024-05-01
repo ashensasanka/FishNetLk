@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       );
 
   Widget _buildSearchWidget() => const RoundIconButton(
-        icon: FontAwesomeIcons.search,
+        icon: FontAwesomeIcons.magnifyingGlass,
       );
 
   //Messenger Icon

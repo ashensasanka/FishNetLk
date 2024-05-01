@@ -48,7 +48,7 @@ class ProductDescriptionPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Expanded(
+                product.category == "Boats & machinery"?Text(''):Expanded(
                   child: Column(
                     children: [
                       const Text('Contact with Seller', style: TextStyle(color: Colors.blue),),
@@ -81,7 +81,12 @@ class ProductDescriptionPage extends StatelessWidget {
             const SizedBox(height: 20),
             TextField(
               maxLines: 3,
-              decoration: InputDecoration(
+              decoration: product.category == "Boats & machinery"?InputDecoration(
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12)
+                  ),
+                  labelText: 'Enter your Contacting Address'
+              ):InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12)
                 ),
@@ -96,7 +101,10 @@ class ProductDescriptionPage extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 15),
                   backgroundColor: Colors.green
                 ),
-                child: const Text(
+                child: product.category == "Boats & machinery"? Text(
+                  'Contact with seller',
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ): Text(
                   'Buy Now',
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
@@ -104,7 +112,7 @@ class ProductDescriptionPage extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context)=> const CardFormScreen()));
+                          builder: (context)=>  product.category == "Boats & machinery"?SellerChatScreen():CardFormScreen()));
                 },
               ),
             )

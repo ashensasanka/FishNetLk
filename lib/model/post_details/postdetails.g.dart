@@ -14,6 +14,9 @@ PostDetails _$PostDetailsFromJson(Map<String, dynamic> json) => PostDetails(
       from: json['from'] as String?,
       title: json['title'] as String?,
       email: json['email'] as String?,
+      createDay: json['createDay'] == null
+          ? null
+          : DateTime.parse(json['createDay'] as String),
     );
 
 Map<String, dynamic> _$PostDetailsToJson(PostDetails instance) =>
@@ -25,4 +28,5 @@ Map<String, dynamic> _$PostDetailsToJson(PostDetails instance) =>
       'from': instance.from,
       'title': instance.title,
       'email': instance.email,
+      'createDay': instance.createDay?.toIso8601String(),
     };

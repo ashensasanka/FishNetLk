@@ -1,6 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:fishnetlk/controller/home_controller.dart';
-import 'package:fishnetlk/pages/favorites_page.dart';
+import 'package:fishnetlk/pages/logs_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'logview_info_tile.dart';
@@ -90,7 +90,7 @@ class _WhetherPageState extends State<ViewLogPage> {
                 context,
                 MaterialPageRoute(
                   builder: (context) =>
-                      FavoritesPage(openDrawer: openDrawer), // Replace with your WeatherPage widget
+                      LogsPage(openDrawer: openDrawer), // Replace with your WeatherPage widget
                 ),
               );
             }

@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
@@ -11,7 +13,8 @@ class LogViewInfoTile extends StatelessWidget {
     Key? key,
     required this.index
   }) : super(key: key);
-
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final User? user = FirebaseAuth.instance.currentUser;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(builder: (userId) {
@@ -28,16 +31,49 @@ class LogViewInfoTile extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text('LogBook of ${userId.makePostUi[1].fullName}'),
+                  StreamBuilder<DocumentSnapshot>(
+                    stream: _firestore
+                        .collection('Users')
+                        .doc(user?.email)
+                        .snapshots(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState ==
+                          ConnectionState.waiting) {
+                        return Center(child: CircularProgressIndicator());
+                      }
+                      if (snapshot.hasError) {
+                        return Center(
+                            child: Text('Error: ${snapshot.error}'));
+                      }
+                      final DocumentSnapshot document = snapshot.data!;
+                      final Map<String, dynamic> data =
+                      document.data() as Map<String, dynamic>;
+                      return
+                        Text('LogBook of ${data['username']}');
+                    },
+                  ),
                   const SizedBox(width: 10),
                   const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                     ],
                   ),
-
                   const Spacer(),
-                  const Icon(Icons.more_horiz),
+                  PopupMenuButton(
+                    offset: Offset(0, 40),
+                    icon: Icon(Icons.more_horiz),
+                    itemBuilder: (BuildContext context) => <PopupMenuEntry>[
+                      PopupMenuItem(
+                        child: ListTile(
+                          title: Text('Delete'),
+                          onTap: () {
+                            userId.deleteLog(userId.logShowUi[index].id ?? '');
+                            userId.fetchLogDetails();
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),

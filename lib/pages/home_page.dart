@@ -5,10 +5,10 @@ import 'package:fishnetlk/pages/profile_page.dart';
 import 'package:fishnetlk/pages/setting_page.dart';
 import 'package:fishnetlk/widget/drawer_widget.dart';
 import 'package:flutter/material.dart';
-import '../features/auth/presentation/screens/create_account_screee.dart';
-import 'explorer_page.dart';
-import 'favorites_page.dart';
-import 'initial_page.dart';
+import '../features/auth/presentation/screens/experts_post_screee.dart';
+import 'market_page.dart';
+import 'logs_page.dart';
+import 'listing_admin_page.dart';
 
 class HomePage extends StatefulWidget{
    const HomePage({Key? key}) : super(key:key);
@@ -116,17 +116,17 @@ class _HomePageState extends State<HomePage> {
   Widget getDrawerPage() {
     switch (item){
       case DrawerItems.favorites:
-        return FavoritesPage(openDrawer: openDrawer);
+        return LogsPage(openDrawer: openDrawer);
       case DrawerItems.message:
-        return CreateAccountScreen(openDrawer: openDrawer);
+        return ExpertsPostScreen(openDrawer: openDrawer);
       case DrawerItems.profile:
         return ProfilePage(openDrawer: openDrawer);
       case DrawerItems.settings:
         return SettingsPage(openDrawer: openDrawer);
       case DrawerItems.home:
-        return InitialPage(openDrawer: openDrawer);
+        return ListAddPage(openDrawer: openDrawer);
       default:
-        return ExplorerPage(openDrawer: openDrawer);
+        return MarketPage(openDrawer: openDrawer);
     }
   }
 }

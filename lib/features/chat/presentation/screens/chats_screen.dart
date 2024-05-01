@@ -53,7 +53,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
   Widget _buildChatsAppBar() => Row(
         children: [
           const MyProfilePic(),
-          const SizedBox(width: 5),
+          const SizedBox(width: 30),
           const Text(
             'Chats',
             style: TextStyle(
@@ -61,11 +61,6 @@ class _ChatsScreenState extends State<ChatsScreen> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const Spacer(),
-          RoundIconButton(
-            icon: FontAwesomeIcons.camera,
-            onPressed: () {},
-          )
         ],
       );
   //

@@ -9,16 +9,16 @@ import '../widget/drawer_menu_widget.dart';
 import 'package:fishnetlk/controller/home_controller.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 
-class FavoritesPage extends StatefulWidget{
+class LogsPage extends StatefulWidget{
   final VoidCallback openDrawer;
 
-  const FavoritesPage({Key? key, required this.openDrawer}) : super(key: key);
+  const LogsPage({Key? key, required this.openDrawer}) : super(key: key);
 
   @override
-  State<FavoritesPage> createState() => _FavoritesPageState();
+  State<LogsPage> createState() => _LogsPageState();
 }
 
-class _FavoritesPageState extends State<FavoritesPage> {
+class _LogsPageState extends State<LogsPage> {
   DateTime? logday;
   late String lat;
   late String long;

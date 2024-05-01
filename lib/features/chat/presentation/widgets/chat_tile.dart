@@ -41,31 +41,37 @@ class ChatTile extends StatelessWidget {
               // Profile Picture
               CircleAvatar(
                 radius: 30,
-                backgroundImage: NetworkImage(ctrl.makePostUi[1].image as String),
+                backgroundImage: NetworkImage('https://www.shutterstock.com/image-photo/young-handsome-man-beard-wearing-260nw-1768126784.jpg'),
               ),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Name
-                    Text(
-                      ctrl.makePostUi[1].fullName as String,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                      child: Text(
+                        'Manoj',
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 5),
                     // Last Message + Ts
                     Row(
                       children: [
-                        Flexible(
-                          child: Text(
-                            lastMessage,
-                            style: const TextStyle(
-                              color: AppColors.darkGreyColor,
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                          child: Flexible(
+                            child: Text(
+                              lastMessage,
+                              style: const TextStyle(
+                                color: AppColors.darkGreyColor,
+                              ),
+                              overflow: TextOverflow.ellipsis,
                             ),
-                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
                         const Text(' → '),
