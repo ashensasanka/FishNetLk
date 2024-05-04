@@ -41,47 +41,47 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAqOmKxwyLxs-vFzamfKrnwWCru2nGDqNQ',
-    appId: '1:901372316128:web:a97f676e998be8f3738385',
-    messagingSenderId: '901372316128',
-    projectId: 'fishnetlk-74358',
-    authDomain: 'fishnetlk-74358.firebaseapp.com',
-    storageBucket: 'fishnetlk-74358.appspot.com',
+    apiKey: 'AIzaSyC9tp_DBPxAIINrVdimCLHil5YpS6Y11VM',
+    appId: '1:135284625531:web:2537fdd5ca0dc62793d2de',
+    messagingSenderId: '135284625531',
+    projectId: 'fishnetlk-3d762',
+    authDomain: 'fishnetlk-3d762.firebaseapp.com',
+    storageBucket: 'fishnetlk-3d762.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyA0VGdisgZhMNVEGhIffDBk0NKodvaFKoc',
-    appId: '1:901372316128:android:1280795e8abd3d2e738385',
-    messagingSenderId: '901372316128',
-    projectId: 'fishnetlk-74358',
-    storageBucket: 'fishnetlk-74358.appspot.com',
+    apiKey: 'AIzaSyAERSLUS4ZjvzB0QOJYFfT_cKdMHzo3Azg',
+    appId: '1:135284625531:android:d07c54ed6c038cba93d2de',
+    messagingSenderId: '135284625531',
+    projectId: 'fishnetlk-3d762',
+    storageBucket: 'fishnetlk-3d762.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAAKpzKJ25F1_AqiHzn3P-Kmjn4by2-lIM',
-    appId: '1:901372316128:ios:4657a3f7bc1e0575738385',
-    messagingSenderId: '901372316128',
-    projectId: 'fishnetlk-74358',
-    storageBucket: 'fishnetlk-74358.appspot.com',
+    apiKey: 'AIzaSyBW0pwlloWW-YPjIqII-UGK2plzyzUGwAw',
+    appId: '1:135284625531:ios:69576788ad20ff2993d2de',
+    messagingSenderId: '135284625531',
+    projectId: 'fishnetlk-3d762',
+    storageBucket: 'fishnetlk-3d762.appspot.com',
     iosBundleId: 'com.example.fishnetlk',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAAKpzKJ25F1_AqiHzn3P-Kmjn4by2-lIM',
-    appId: '1:901372316128:ios:4657a3f7bc1e0575738385',
-    messagingSenderId: '901372316128',
-    projectId: 'fishnetlk-74358',
-    storageBucket: 'fishnetlk-74358.appspot.com',
+    apiKey: 'AIzaSyBW0pwlloWW-YPjIqII-UGK2plzyzUGwAw',
+    appId: '1:135284625531:ios:69576788ad20ff2993d2de',
+    messagingSenderId: '135284625531',
+    projectId: 'fishnetlk-3d762',
+    storageBucket: 'fishnetlk-3d762.appspot.com',
     iosBundleId: 'com.example.fishnetlk',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyAqOmKxwyLxs-vFzamfKrnwWCru2nGDqNQ',
-    appId: '1:901372316128:web:6f20a3290e5783f2738385',
-    messagingSenderId: '901372316128',
-    projectId: 'fishnetlk-74358',
-    authDomain: 'fishnetlk-74358.firebaseapp.com',
-    storageBucket: 'fishnetlk-74358.appspot.com',
+    apiKey: 'AIzaSyC9tp_DBPxAIINrVdimCLHil5YpS6Y11VM',
+    appId: '1:135284625531:web:6e60209903d89c4593d2de',
+    messagingSenderId: '135284625531',
+    projectId: 'fishnetlk-3d762',
+    authDomain: 'fishnetlk-3d762.firebaseapp.com',
+    storageBucket: 'fishnetlk-3d762.appspot.com',
   );
 
 }

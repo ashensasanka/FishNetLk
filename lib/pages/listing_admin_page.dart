@@ -39,7 +39,7 @@ class ListAddPage extends StatelessWidget {
                     ),
                   ),
                   const Text(
-                    'Listing Admin',
+                    'Add Items',
                     style: TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 30),
                   ),
