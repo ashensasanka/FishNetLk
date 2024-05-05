@@ -1,19 +1,19 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
-class WhetherPage extends StatefulWidget {
+class WeatherPage extends StatefulWidget {
   final VoidCallback openDrawer;
 
-  const WhetherPage({
+  const WeatherPage({
     Key? key,
     required this.openDrawer,
   }) : super(key: key);
 
   @override
-  State<WhetherPage> createState() => _WhetherPageState();
+  State<WeatherPage> createState() => _WeatherPageState();
 }
 
-class _WhetherPageState extends State<WhetherPage> {
+class _WeatherPageState extends State<WeatherPage> {
   Color color = const Color(0xff004BFE);
   late double xOffset;
   late double yOffset;
@@ -32,7 +32,7 @@ class _WhetherPageState extends State<WhetherPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFFD2DCFF),
-        title: const Text('Whether',
+        title: const Text('Weather',
           style: TextStyle(
             fontWeight: FontWeight.bold
           ),),
@@ -78,7 +78,7 @@ class _WhetherPageState extends State<WhetherPage> {
               context,
               MaterialPageRoute(
                 builder: (context) =>
-                    WhetherPage(openDrawer: openDrawer), // Replace with your WeatherPage widget
+                    WeatherPage(openDrawer: openDrawer), // Replace with your WeatherPage widget
               ),
             );
           }

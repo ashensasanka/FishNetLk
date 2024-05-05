@@ -60,6 +60,7 @@ class MarketPage extends StatelessWidget {
                         padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
                         child: IconButton(
                           onPressed: () {
+                            ctrl.fetchCartDetails();
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -149,7 +150,7 @@ class MarketPage extends StatelessWidget {
                       ),
                       Flexible(
                         child: MultiSelectDropDown(
-                          items: const ['Fish1', 'Fish2', 'Fish3'],
+                          items: const ['Fishing gear', 'Boats & machinery', 'Seafood Items'],
                           onSelectionChanged: (selectedItems) {
                             ctrl.filterByBrand(selectedItems);
                           },

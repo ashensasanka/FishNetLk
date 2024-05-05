@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fishnetlk/data/drawer_items.dart';
 import 'package:fishnetlk/model/drawer_item.dart';
 import 'package:fishnetlk/pages/profile_page.dart';
-import 'package:fishnetlk/pages/setting_page.dart';
+import 'package:fishnetlk/pages/compass_page.dart';
 import 'package:fishnetlk/widget/drawer_widget.dart';
 import 'package:flutter/material.dart';
 import '../features/auth/presentation/screens/experts_post_screee.dart';
@@ -122,7 +122,7 @@ class _HomePageState extends State<HomePage> {
       case DrawerItems.profile:
         return ProfilePage(openDrawer: openDrawer);
       case DrawerItems.settings:
-        return SettingsPage(openDrawer: openDrawer);
+        return CompassPage(openDrawer: openDrawer);
       case DrawerItems.home:
         return ListAddPage(openDrawer: openDrawer);
       default:

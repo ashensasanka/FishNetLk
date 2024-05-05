@@ -11,13 +11,14 @@ class ChatTile extends StatelessWidget {
     required this.userId,
     required this.lastMessage,
     required this.lastMessageTs,
-    required this.chatroomId,
+    required this.chatroomId, required this.index,
   }) : super(key: key);
 
   final String userId;
   final String lastMessage;
   final DateTime lastMessageTs;
   final String chatroomId;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +30,16 @@ class ChatTile extends StatelessWidget {
         ),
         child: InkWell(
           onTap: () {
-            Navigator.of(context).pushNamed(
-              ChatScreen.routeName,
-              arguments: {
-                'userId': userId,
-              },
+            // Navigator.of(context).pushNamed(
+            //   ChatScreen.routeName,
+            //   arguments: {
+            //     'userId': userId,
+            //   },
+            // );
+            ctrl.fetchMessage(ctrl.usersShow[index].username as String);
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ChatScreen(userId: ctrl.usersShow[index].username as String,)),
             );
           },
           child: Row(
@@ -51,7 +57,7 @@ class ChatTile extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: Text(
-                        'Manoj',
+                        ctrl.usersShow[index].username as String,
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,

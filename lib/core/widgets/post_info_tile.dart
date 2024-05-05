@@ -49,7 +49,7 @@ class PostInfoTile extends StatelessWidget {
                         StreamBuilder<DocumentSnapshot>(
                           stream: _firestore
                               .collection('Users')
-                              .doc(user?.email)
+                              .doc('${userId.postdetails[index].email.toString()}')
                               .snapshots(),
                           builder: (context, snapshot) {
                             if (snapshot.connectionState ==

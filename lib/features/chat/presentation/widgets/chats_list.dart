@@ -9,7 +9,7 @@ class ChatsList extends StatelessWidget {
       userId: 'userId',
       lastMessage: 'chat.lastMessage',
       lastMessageTs: DateTime(2017, 9, 7, 17, 30),
-      chatroomId: 'chat.chatroomId',
+      chatroomId: 'chat.chatroomId', index: 0,
     );
   }
 }

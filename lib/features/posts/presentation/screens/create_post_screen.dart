@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fishnetlk/controller/home_controller.dart';
 import 'package:fishnetlk/core/constants/app_colors.dart';
 import 'package:fishnetlk/core/constants/constants.dart';
@@ -24,6 +25,7 @@ class _CreatePostScreenState extends ConsumerState<CreatePostScreen> {
   File? file;
   String fileType = 'image';
   bool isLoading = false;
+  User? user = FirebaseAuth.instance.currentUser;
 
   @override
   Widget build(BuildContext context) => GetBuilder<HomeController>(
@@ -164,11 +166,9 @@ class _CreatePostScreenState extends ConsumerState<CreatePostScreen> {
                           )
                         : RoundButton(
                             onPressed: () {
-                              ctrl.fetchPostsList();
-                              ctrl.addPost(file, fileType);
-                              ctrl.challengeTitleCtrl.clear();
+                              ctrl.addPost(file, fileType, user?.email);
                               ctrl.challengeEmailCtrl.clear();
-                              ctrl.challengeDescriptionCtrl.clear();
+                              ctrl.fetchPostsList();
                               Navigator.pop(context);
                             },
                             label: 'Post',

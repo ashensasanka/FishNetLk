@@ -168,17 +168,6 @@ class _LogsPageState extends State<LogsPage> {
                     )
                 ),
                 const SizedBox(height: 10,),
-                TextField(
-                    controller: ctrl.soldQuantityCtrl,
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10)
-                        ),
-                        label: const Text('Sold Quantity (kg)'),
-                        hintText: 'Enter Sold Quantity'
-                    )
-                ),
-                const SizedBox(height: 10,),
                 Text(locationMessage),
                 const SizedBox(height: 10),
                 ElevatedButton(onPressed: (){
@@ -221,7 +210,6 @@ class _LogsPageState extends State<LogsPage> {
                       ctrl.fishQuantityCtrl.clear();
                       ctrl.fishCostCtrl.clear();
                       ctrl.sellPriceCtrl.clear();
-                      ctrl.soldQuantityCtrl.clear();
                       ctrl.fetchLogDetails();
                     }, child: const Text('Update Log'))
               ]

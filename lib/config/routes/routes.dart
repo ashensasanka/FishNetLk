@@ -15,7 +15,7 @@ class Routes {
       case ChatScreen.routeName:
         return _cupertinoRoute(
           const ChatScreen(
-            userId: 'userId',
+            userId: 'userIds',
           ),
         );
       case ChatsScreen.routeName:

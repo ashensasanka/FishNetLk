@@ -1,22 +1,22 @@
 import 'dart:math';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:fishnetlk/pages/whether.dart';
+import 'package:fishnetlk/pages/weather.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_compass/flutter_compass.dart';
 import '../widget/drawer_menu_widget.dart';
 
-class SettingsPage extends StatefulWidget {
+class CompassPage extends StatefulWidget {
   final VoidCallback openDrawer;
-  const SettingsPage({
+  const CompassPage({
     Key? key,
     required this.openDrawer
   }) : super(key: key);
 
   @override
-  State<SettingsPage> createState() => _SettingsPageState();
+  State<CompassPage> createState() => _CompassPageState();
 }
 
-class _SettingsPageState extends State<SettingsPage> {
+class _CompassPageState extends State<CompassPage> {
   double? heading=0;
   Color color = const Color(0xff004BFE);
 
@@ -67,7 +67,7 @@ class _SettingsPageState extends State<SettingsPage> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => WhetherPage(openDrawer: openDrawer), // Replace with your WeatherPage widget
+                builder: (context) => WeatherPage(openDrawer: openDrawer), // Replace with your WeatherPage widget
               ),
             );
           }

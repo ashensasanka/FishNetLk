@@ -107,10 +107,6 @@ class LogViewInfoTile extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Text('Selling Price (1kg) : Rs. ${userId.logShowUi[index].sellprice}'),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Text('Quantity sold : Rs. ${userId.logShowUi[index].soldquantity}'),
-            ),
             const SizedBox(height: 15,)
           ],
         ),

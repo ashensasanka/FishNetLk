@@ -1,5 +1,7 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:fishnetlk/model/chat_details/chatdetails.dart';
 import 'package:fishnetlk/model/product/product.dart';
@@ -10,6 +12,7 @@ import '../model/message/message.dart';
 import '../model/logdetails/logdetails.dart';
 import '../model/post_details/postdetails.dart';
 import '../model/seller_message/seller_message.dart';
+import '../model/users/users.dart';
 
 // Here we defined the class to access the database and handle the data query in documents
 class HomeController extends GetxController{
@@ -20,6 +23,7 @@ class HomeController extends GetxController{
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   FirebaseStorage storage = FirebaseStorage.instance;
   //Defined the Collections variables of database
+  late CollectionReference usersCollection;
   late CollectionReference logdetailsCollection;
   late CollectionReference productCollection;
   late CollectionReference categoryCollection;
@@ -40,7 +44,6 @@ class HomeController extends GetxController{
   TextEditingController fishingMethodCtrl = TextEditingController();
   TextEditingController fishCostCtrl = TextEditingController();
   TextEditingController sellPriceCtrl = TextEditingController();
-  TextEditingController soldQuantityCtrl = TextEditingController();
   // Text controller from FB account create page
   TextEditingController fNameController = TextEditingController();
   TextEditingController lNameController = TextEditingController();
@@ -75,6 +78,7 @@ class HomeController extends GetxController{
   //List of Loging details and Show
   List<LogDetails> logdetails = [];
   List<LogDetails> logShowUi = [];
+  List<Users> usersShow = [];
   //List of Chat details and Show
   List<ChatDetails> chatdetails = [];
   List<ChatDetails> makePostUi = [];
@@ -105,15 +109,17 @@ class HomeController extends GetxController{
     postdetailsCollection = firestore.collection('postdetails'); //postShowUi
     messageCollection = firestore.collection('message');
     cartCollection = firestore.collection('cart');
+    usersCollection = firestore.collection('Users');
     sellermessageCollection = firestore.collection('sellermessage');
     await fetchCategory();
     await fetchProducts();
     await fetchPostDetails();
     await fetchPostsList();
-    await fetchMessage();
+
     await fetchLogDetails();
-    await fetchCartDetails();
+
     await fetchSellerMessage();
+    await fetchUserDetails();
     super.onInit();
   }
 
@@ -155,7 +161,7 @@ class HomeController extends GetxController{
 
   // Add Post into postdetails collection
   DateTime now = DateTime.now();
-  addPost(File? selectedImage, String filetype) async {
+  addPost(File? selectedImage, String filetype, String? useremail) async {
 
     try {
       if (selectedImage == null) {
@@ -180,7 +186,7 @@ class HomeController extends GetxController{
         image: imageUrl, // Add this field to your ChatDetails model
         from: from,
         title: challengeTitleCtrl.text,
-        email: challengeEmailCtrl.text,
+        email: useremail,
         createDay: DateTime.now()
       );
 
@@ -214,10 +220,11 @@ class HomeController extends GetxController{
   }
 
   // Add messages into message collection
-  addMessage(){
+  addMessage( String uid){
+    CollectionReference messageColl = FirebaseFirestore.instance.collection(uid);
     try {
       int pressingTime = DateTime.now().toUtc().millisecondsSinceEpoch;
-      DocumentReference doc = messageCollection.doc('$pressingTime');
+      DocumentReference doc = messageColl.doc('$pressingTime');
       Message message = Message(
         id:doc.id,
         message:messageController.text,
@@ -245,7 +252,6 @@ class HomeController extends GetxController{
         quantity: fishQuantityCtrl.text,
         cost:double.tryParse(fishCostCtrl.text),
         sellprice: double.tryParse(sellPriceCtrl.text),
-        soldquantity:double.tryParse(soldQuantityCtrl.text),
         date: logday
       );
       final logindetailsJson = logindetails.toJson();
@@ -259,8 +265,10 @@ class HomeController extends GetxController{
 
   // Add cart details into cart collection
   addCart(int index){
+    User? user = FirebaseAuth.instance.currentUser;
+    CollectionReference cartColl = FirebaseFirestore.instance.collection('cart${user?.uid}');
     try {
-      DocumentReference doc = cartCollection.doc();
+      DocumentReference doc = cartColl.doc();
       Product product = Product(
         id:doc.id,
         name:productShowInUi[index].name,
@@ -329,8 +337,10 @@ class HomeController extends GetxController{
 
   // Fetch the cart details from cart details collection
   fetchCartDetails() async {
+    User? user = FirebaseAuth.instance.currentUser;
+    CollectionReference cartColl = FirebaseFirestore.instance.collection('cart${user?.uid}');
     try {
-      QuerySnapshot cartdetailsSnapshot = await cartCollection.get();
+      QuerySnapshot cartdetailsSnapshot = await cartColl.get();
       final List<Product> retrievedLog = cartdetailsSnapshot.docs.map((doc) => Product.fromJson(doc.data() as Map<String, dynamic>)).toList();
       cart.clear();
       cart.assignAll(retrievedLog);
@@ -359,6 +369,19 @@ class HomeController extends GetxController{
     }
   }
 
+  fetchUserDetails() async {
+    try {
+      QuerySnapshot usertailsSnapshot = await usersCollection.get();
+      final List<Users> retrievedUsers = usertailsSnapshot.docs.map((doc) => Users.fromJson(doc.data() as Map<String, dynamic>)).toList();
+      usersShow.assignAll(retrievedUsers);
+      Get.snackbar('Success', 'Users fetch successfully', colorText: Colors.green);
+    } catch (e) {
+      Get.snackbar('Error', e.toString(), colorText: Colors.red);
+    } finally{
+      update();
+    }
+  }
+
   // Fetch the seller messages from seller messages collection
   fetchSellerMessage() async {
     try {
@@ -376,9 +399,10 @@ class HomeController extends GetxController{
   }
 
   // Fetch the messages from message collection
-  fetchMessage() async {
+  fetchMessage(String uid) async {
+    CollectionReference messageColl = FirebaseFirestore.instance.collection(uid);
     try {
-      QuerySnapshot messageSnapshot = await messageCollection.get();
+      QuerySnapshot messageSnapshot = await messageColl.get();
       final List<Message> retrievedMessage = messageSnapshot.docs.map((doc) => Message.fromJson(doc.data() as Map<String, dynamic>)).toList();
       message.clear();
       message.assignAll(retrievedMessage);

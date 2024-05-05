@@ -140,8 +140,8 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
                 color: AppColors.messengerBlue,
               ),
               onPressed: () {
-                ctrl.addMessage();
-                ctrl.fetchMessage();
+                ctrl.addMessage(widget.userId);
+                ctrl.fetchMessage(widget.userId);
                 ctrl.messageController.clear();
               },
             ),

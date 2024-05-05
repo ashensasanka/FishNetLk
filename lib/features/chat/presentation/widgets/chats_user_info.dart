@@ -19,14 +19,14 @@ class ChatUserInfo extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 20,
-              backgroundImage: NetworkImage(ctrl.makePostUi[1].image as String),
+              backgroundImage: NetworkImage('https://www.shutterstock.com/image-photo/young-handsome-man-beard-wearing-260nw-1768126784.jpg'),
             ),
             const SizedBox(width: 10),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  ctrl.makePostUi[1].fullName as String,
+                  userId,
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
