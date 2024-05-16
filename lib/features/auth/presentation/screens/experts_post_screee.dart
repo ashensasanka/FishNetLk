@@ -81,7 +81,7 @@ class _CreateAccountScreenState extends ConsumerState<ExpertsPostScreen>
             onClicked: widget.openDrawer,
           ),
           Text(
-            '   Experts Post',
+            '  Posts',
             style: TextStyle(
               color: AppColors.blueColor,
               fontSize: 30,
