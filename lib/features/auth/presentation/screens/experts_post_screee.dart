@@ -22,8 +22,7 @@ class ExpertsPostScreen extends ConsumerStatefulWidget {
   const ExpertsPostScreen({super.key, required this.openDrawer});
 
   @override
-  ConsumerState<ExpertsPostScreen> createState() =>
-      _CreateAccountScreenState();
+  ConsumerState<ExpertsPostScreen> createState() => _CreateAccountScreenState();
 }
 
 class _CreateAccountScreenState extends ConsumerState<ExpertsPostScreen>

@@ -42,8 +42,6 @@ class HomeController extends GetxController{
   TextEditingController fishQuantityCtrl = TextEditingController();
   TextEditingController fishLocationCtrl = TextEditingController();
   TextEditingController fishingMethodCtrl = TextEditingController();
-  TextEditingController fishCostCtrl = TextEditingController();
-  TextEditingController sellPriceCtrl = TextEditingController();
   // Text controller from FB account create page
   TextEditingController fNameController = TextEditingController();
   TextEditingController lNameController = TextEditingController();
@@ -115,9 +113,6 @@ class HomeController extends GetxController{
     await fetchProducts();
     await fetchPostDetails();
     await fetchPostsList();
-
-    await fetchLogDetails();
-
     await fetchSellerMessage();
     await fetchUserDetails();
     super.onInit();
@@ -240,9 +235,10 @@ class HomeController extends GetxController{
   }
 
   // Add log details into logdetails collection
-  addLogDetails(){
+  addLogDetails(String UID){
+    CollectionReference logColl = FirebaseFirestore.instance.collection('logdetails${UID}');
     try {
-      DocumentReference doc = logdetailsCollection.doc();
+      DocumentReference doc = logColl.doc();
       LogDetails logindetails = LogDetails(
         id:doc.id,
         name:fishNameCtrl.text,
@@ -250,8 +246,6 @@ class HomeController extends GetxController{
         lat: lat,
         long: long,
         quantity: fishQuantityCtrl.text,
-        cost:double.tryParse(fishCostCtrl.text),
-        sellprice: double.tryParse(sellPriceCtrl.text),
         date: logday
       );
       final logindetailsJson = logindetails.toJson();
@@ -354,9 +348,10 @@ class HomeController extends GetxController{
   }
 
   // Fetch the log details from log details collection
-  fetchLogDetails() async {
+  fetchLogDetails(String UID) async {
+    CollectionReference logColl = FirebaseFirestore.instance.collection('logdetails${UID}');
     try {
-      QuerySnapshot logdetailsSnapshot = await logdetailsCollection.get();
+      QuerySnapshot logdetailsSnapshot = await logColl.get();
       final List<LogDetails> retrievedLog = logdetailsSnapshot.docs.map((doc) => LogDetails.fromJson(doc.data() as Map<String, dynamic>)).toList();
       logdetails.clear();
       logdetails.assignAll(retrievedLog);
@@ -515,9 +510,10 @@ class HomeController extends GetxController{
     }
   }
 
-  deleteLog(String id) async {
+  deleteLog(String id, String UID) async {
+    CollectionReference logColl = FirebaseFirestore.instance.collection('logdetails${UID}');
     try {
-      await logdetailsCollection.doc(id).delete();
+      await logColl.doc(id).delete();
       fetchProducts();
     } catch (e) {
       Get.snackbar('Error', e.toString(), colorText: Colors.red);

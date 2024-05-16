@@ -43,37 +43,34 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.realWhiteColor,
-        appBar: AppBar(
-                leading: IconButton(
-                  onPressed: Navigator.of(context).pop,
-                  icon: const Icon(
-                    Icons.arrow_back_ios,
-                    color: AppColors.messengerBlue,
-                  ),
-                ),
-                titleSpacing: 0,
-                title: ChatUserInfo(
-                        userId: widget.userId,
-                      ),
-              ),
-        body: Column(
-                children: [
-                  const Expanded(
-                    child: MessagesList(
-
-                    ),
-                  ),
-                  const Divider(),
-                  _buildMessageInput(),
-                ],
-              ),
-
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: Navigator.of(context).pop,
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: AppColors.messengerBlue,
+          ),
+        ),
+        titleSpacing: 0,
+        title: ChatUserInfo(
+          userId: widget.userId,
+        ),
+      ),
+      body: Column(
+        children: [
+          const Expanded(
+            child: MessagesList(),
+          ),
+          const Divider(),
+          _buildMessageInput(),
+        ],
+      ),
     );
   }
 
   // Chat Text Field
   Widget _buildMessageInput() {
-    return GetBuilder<HomeController>(builder: (ctrl){
+    return GetBuilder<HomeController>(builder: (ctrl) {
       return Container(
         padding: const EdgeInsets.all(8.0),
         child: Row(
@@ -87,11 +84,11 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
                 final image = await pickImage();
                 if (image == null) return;
                 await ref.read(chatProvider).sendFileMessage(
-                  file: image,
-                  chatroomId: chatroomId,
-                  receiverId: widget.userId,
-                  messageType: 'image',
-                );
+                      file: image,
+                      chatroomId: chatroomId,
+                      receiverId: widget.userId,
+                      messageType: 'image',
+                    );
               },
             ),
             IconButton(
@@ -104,11 +101,11 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
                 final video = await pickVideo();
                 if (video == null) return;
                 await ref.read(chatProvider).sendFileMessage(
-                  file: video,
-                  chatroomId: chatroomId,
-                  receiverId: widget.userId,
-                  messageType: 'video',
-                );
+                      file: video,
+                      chatroomId: chatroomId,
+                      receiverId: widget.userId,
+                      messageType: 'video',
+                    );
               },
             ),
             // Text Field

@@ -18,43 +18,7 @@ class ViewGraphPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xFFD2DCFF),
-        title: const Text('Graph View',
-          style: TextStyle(
-              fontWeight: FontWeight.bold
-          ),),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context); // This will navigate back when the back button is pressed
-          },
-        ),
-      ),
       backgroundColor: const Color(0xFFE9EFFF),
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.white,
-        color: color,
-        animationDuration: const Duration(milliseconds: 300),
-        onTap: (index) {
-
-        },
-        items: const [
-          Icon(
-            Icons.home,
-            color: Colors.white,
-          ),
-          Icon(
-            Icons.backup_outlined,
-            color: Colors.white,
-          ),
-          Icon(
-            Icons.bar_chart,
-            color: Colors.white,
-          ),
-        ],
-        index: 2, // Set the initial index to 1
-      ),
       body: Stack(
         children: [
           // Background image

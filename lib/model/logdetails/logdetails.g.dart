@@ -13,8 +13,6 @@ LogDetails _$LogDetailsFromJson(Map<String, dynamic> json) => LogDetails(
       lat: json['latitude'] as String?,
       long: json['longitude'] as String?,
       quantity: json['quantity'] as String?,
-      cost: (json['cost'] as num?)?.toDouble(),
-      sellprice: (json['sellprice'] as num?)?.toDouble(),
       date:
           json['date'] == null ? null : DateTime.parse(json['date'] as String),
     );
@@ -27,7 +25,5 @@ Map<String, dynamic> _$LogDetailsToJson(LogDetails instance) =>
       'latitude': instance.lat,
       'longitude': instance.long,
       'quantity': instance.quantity,
-      'cost': instance.cost,
-      'sellprice': instance.sellprice,
       'date': instance.date?.toIso8601String(),
     };

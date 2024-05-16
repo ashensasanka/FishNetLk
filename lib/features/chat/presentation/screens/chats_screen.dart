@@ -21,50 +21,52 @@ class ChatsScreen extends StatefulWidget {
 class _ChatsScreenState extends State<ChatsScreen> {
   @override
   Widget build(BuildContext context) {
-     return GetBuilder<HomeController>(
-       builder: (ctrl) {
-         return Scaffold(
+    return GetBuilder<HomeController>(
+      builder: (ctrl) {
+        return Scaffold(
           backgroundColor: AppColors.realWhiteColor,
           body: SafeArea(
             child: Padding(
               padding: Constants.defaultPadding,
               child: Column(
-                  children: [
-             //             // build chats app bar
-                    _buildChatsAppBar(),
-                    const SizedBox(height: 20),
-             //             // Search widget
-                    _buildChatsSearchWidget(),
-                    const SizedBox(height: 30),
-             //             // Chats List
-                    Expanded(
-                      child: GridView.builder(
-                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                children: [
+                  //             // build chats app bar
+                  _buildChatsAppBar(),
+                  const SizedBox(height: 20),
+                  //             // Search widget
+                  _buildChatsSearchWidget(),
+                  const SizedBox(height: 30),
+                  //             // Chats List
+                  Expanded(
+                    child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 1,
                               childAspectRatio: 4.5,
                               crossAxisSpacing: 8,
                               mainAxisSpacing: 8),
-                          itemCount: ctrl.usersShow.length,
-                          itemBuilder: (context, index) {
-                            return SizedBox(
-                              height: 70,
-                              child: ChatTile(
-                                userId: '',
-                                lastMessage: 'chat.lastMessage',
-                                lastMessageTs: DateTime(2017, 9, 7, 17, 30),
-                                chatroomId: 'chat.chatroomId', index: index,
-                              ),
-                            );
-                          }),
+                      itemCount: ctrl.usersShow.length,
+                      itemBuilder: (context, index) {
+                        return SizedBox(
+                          height: 70,
+                          child: ChatTile(
+                            userId: '',
+                            lastMessage: 'chat.lastMessage',
+                            lastMessageTs: DateTime(2017, 9, 7, 17, 30),
+                            chatroomId: 'chat.chatroomId',
+                            index: index,
+                          ),
+                        );
+                      },
                     ),
-                  ],
-                ),
-
+                  ),
+                ],
+              ),
             ),
           ),
-         );
-       }
-     );
+        );
+      },
+    );
   }
 
   Widget _buildChatsAppBar() => Row(

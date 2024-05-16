@@ -6,8 +6,8 @@ import 'package:fishnetlk/pages/compass_page.dart';
 import 'package:fishnetlk/widget/drawer_widget.dart';
 import 'package:flutter/material.dart';
 import '../features/auth/presentation/screens/experts_post_screee.dart';
+import 'logs_root_page.dart';
 import 'market_page.dart';
-import 'logs_page.dart';
 import 'listing_admin_page.dart';
 
 class HomePage extends StatefulWidget{
@@ -116,7 +116,7 @@ class _HomePageState extends State<HomePage> {
   Widget getDrawerPage() {
     switch (item){
       case DrawerItems.favorites:
-        return LogsPage(openDrawer: openDrawer);
+        return LogsRootPage(openDrawer: openDrawer);
       case DrawerItems.message:
         return ExpertsPostScreen(openDrawer: openDrawer);
       case DrawerItems.profile:

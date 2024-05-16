@@ -15,57 +15,75 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-
   // text editing controllers
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
   var options = [
-    'Both',
+    'Fisherman',
     'Experts',
     'Seller',
     'Buyer',
     'Government Agencies'
   ];
-  var _currentItemSelected = "Both";
-  var rool = "Both";
+  var _currentItemSelected = "Fisherman";
+  var rool = "Fisherman";
 
   postDetailsToFirestore(String email, String rool) async {
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
     var user = FirebaseAuth.instance.currentUser;
-    CollectionReference ref_rool = FirebaseFirestore.instance.collection('user_rool');
-    CollectionReference ref_profile = FirebaseFirestore.instance.collection('Users');
-    ref_rool.doc(user!.uid).set({'email': emailController.text, 'rool': rool});
-    ref_profile.doc(user!.email).set({'username':emailController.text.split('@')[0],
-      'bio':'Empty bio..',});
-
+    CollectionReference ref_rool =
+        FirebaseFirestore.instance.collection('user_rool');
+    CollectionReference ref_profile =
+        FirebaseFirestore.instance.collection('Users');
+    ref_rool.doc(user!.uid).set(
+      {
+        'email': emailController.text,
+        'rool': rool,
+      },
+    );
+    ref_profile.doc(user!.email).set(
+      {
+        'username': emailController.text.split('@')[0],
+        'bio': 'Empty bio..',
+      },
+    );
   }
+
   // sign user up method
   void signUserUp() async {
     //show loading circle
     showDialog(
-        context: context,
-        builder: (context) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        });
+      context: context,
+      builder: (context) {
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      },
+    );
 
     // try creating the user
     try {
       // check if password is confirmed
       if (passwordController.text == confirmPasswordController.text) {
-        UserCredential userCredential = (await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: emailController.text,
-          password: passwordController.text,
-        ).then((value) => {postDetailsToFirestore(emailController.text, rool)}).catchError((e){})) as UserCredential;
+        UserCredential userCredential = (await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(
+              email: emailController.text,
+              password: passwordController.text,
+            )
+            .then(
+                (value) => {postDetailsToFirestore(emailController.text, rool)})
+            .catchError((e) {})) as UserCredential;
 
-        FirebaseFirestore.instance.collection("Users")
-        .doc(userCredential.user!.email)
-        .set({
-          'username':emailController.text.split('@')[0],
-          'bio':'Empty bio..',
-        });
+        FirebaseFirestore.instance
+            .collection("Users")
+            .doc(userCredential.user!.email)
+            .set(
+          {
+            'username': emailController.text.split('@')[0],
+            'bio': 'Empty bio..',
+          },
+        );
       } else {
         // show error message, password don't match
         showErrorMesaage("Password don't match!");
@@ -83,17 +101,19 @@ class _RegisterPageState extends State<RegisterPage> {
   // error message to user
   void showErrorMesaage(String message) {
     showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            backgroundColor: Colors.blueGrey,
-            title: Center(
-                child: Text(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: Colors.blueGrey,
+          title: Center(
+            child: Text(
               message,
               style: const TextStyle(color: Colors.white),
-            )),
-          );
-        });
+            ),
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -102,7 +122,8 @@ class _RegisterPageState extends State<RegisterPage> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('lib/images/Fish_Market_3.jpg'), // Replace with your image path
+            image: AssetImage(
+                'lib/images/Fish_Market_3.jpg'), // Replace with your image path
             fit: BoxFit.cover,
           ),
         ),
@@ -113,7 +134,11 @@ class _RegisterPageState extends State<RegisterPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // logo
-                  const Icon(Icons.supervised_user_circle,size: 100,color: Color(0xFF004CFF),),
+                  const Icon(
+                    Icons.supervised_user_circle,
+                    size: 100,
+                    color: Color(0xFF004CFF),
+                  ),
                   // welcome back, You've been missed!
                   const Text(
                     'Let\'s create an account for you!',
@@ -168,24 +193,28 @@ class _RegisterPageState extends State<RegisterPage> {
                         isExpanded: false,
                         iconEnabledColor: Colors.black,
                         focusColor: Colors.white,
-                        items: options.map((String dropDownStringItem) {
-                          return DropdownMenuItem<String>(
-                            value: dropDownStringItem,
-                            child: Text(
-                              dropDownStringItem,
-                              style: const TextStyle(
-                                color: Color(0xB3000000),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
+                        items: options.map(
+                          (String dropDownStringItem) {
+                            return DropdownMenuItem<String>(
+                              value: dropDownStringItem,
+                              child: Text(
+                                dropDownStringItem,
+                                style: const TextStyle(
+                                  color: Color(0xB3000000),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                ),
                               ),
-                            ),
-                          );
-                        }).toList(),
+                            );
+                          },
+                        ).toList(),
                         onChanged: (newValueSelected) {
-                          setState(() {
-                            _currentItemSelected = newValueSelected!;
-                            rool = newValueSelected;
-                          });
+                          setState(
+                            () {
+                              _currentItemSelected = newValueSelected!;
+                              rool = newValueSelected;
+                            },
+                          );
                         },
                         value: _currentItemSelected,
                       ),
@@ -234,13 +263,12 @@ class _RegisterPageState extends State<RegisterPage> {
                     children: [
                       // google button
                       SquareTile(
-                          onTap: ()=> AuthService().signInWithGoogle(),
+                          onTap: () => AuthService().signInWithGoogle(),
                           imagePath: 'lib/images/google.png'),
                       const SizedBox(width: 25),
                       // apple button
                       SquareTile(
-                          onTap: ()=>{},
-                          imagePath: 'lib/images/apple.png')
+                          onTap: () => {}, imagePath: 'lib/images/apple.png')
                     ],
                   ),
                   const SizedBox(

@@ -21,12 +21,6 @@ class LogDetails {
   @JsonKey(name:"quantity")
   String? quantity;
 
-  @JsonKey(name:"cost")
-  double? cost;
-
-  @JsonKey(name:"sellprice")
-  double? sellprice;
-
   @JsonKey(name:"date")
   DateTime? date;
 
@@ -37,8 +31,6 @@ class LogDetails {
     this.lat,
     this.long,
     this.quantity,
-    this.cost,
-    this.sellprice,
     this.date,
   });
 

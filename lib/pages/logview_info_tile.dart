@@ -67,8 +67,8 @@ class LogViewInfoTile extends StatelessWidget {
                         child: ListTile(
                           title: Text('Delete'),
                           onTap: () {
-                            userId.deleteLog(userId.logShowUi[index].id ?? '');
-                            userId.fetchLogDetails();
+                            userId.deleteLog(userId.logShowUi[index].id ?? '', user!.uid);
+                            userId.fetchLogDetails(user!.uid);
                           },
                         ),
                       ),
@@ -98,14 +98,6 @@ class LogViewInfoTile extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Text('Quantity : ${userId.logShowUi[index].quantity} kg'),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Text('All Costs : Rs. ${userId.logShowUi[index].cost}'),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Text('Selling Price (1kg) : Rs. ${userId.logShowUi[index].sellprice}'),
             ),
             const SizedBox(height: 15,)
           ],

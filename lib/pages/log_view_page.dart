@@ -1,41 +1,41 @@
-import 'package:fishnetlk/features/posts/presentation/widgets/make_post_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
-import '../../../../controller/home_controller.dart';
-import '../../../../core/widgets/post_info_tile.dart';
 
-class PostsScreen extends StatelessWidget {
-  const PostsScreen({super.key});
+import '../controller/home_controller.dart';
+import 'logview_info_tile.dart';
 
+class LogViewPage extends StatefulWidget {
+  const LogViewPage({super.key});
+
+  @override
+  State<LogViewPage> createState() => _LogViewPageState();
+}
+
+class _LogViewPageState extends State<LogViewPage> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(
       builder: (ctrl) {
-        return RefreshIndicator(
-          onRefresh: () async {
-            ctrl.fetchPostsList();
-          },
-          child: CustomScrollView(
+        return Scaffold(
+          body: CustomScrollView(
             slivers: [
-              const FeedMakePostWidget(),
-              //PostMyList(),
               SliverToBoxAdapter(
                 child: SizedBox(
                   height: 605,
-                  // Set a height or adjust it according to your layout
                   child: ListView.separated(
-                    itemCount: ctrl.postdetails.length,
+                    itemCount: ctrl.logShowUi.length,
                     separatorBuilder: (context, index) =>
                         const SizedBox(height: 8),
                     itemBuilder: (context, index) {
-                      return PostInfoTile(
+                      return LogViewInfoTile(
                           index: index); // Replace with your actual widget
                     },
                   ),
                 ),
-              ),
+              )
             ],
           ),
+          backgroundColor: const Color(0xFFE9EFFF),
         );
       },
     );

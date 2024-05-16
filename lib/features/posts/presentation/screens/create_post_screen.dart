@@ -33,7 +33,7 @@ class _CreatePostScreenState extends ConsumerState<CreatePostScreen> {
           return Scaffold(
             appBar: AppBar(
               title: const Text(
-                'Post a Challenge',
+                'What’s on your mind',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ),

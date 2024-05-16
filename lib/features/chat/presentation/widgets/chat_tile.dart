@@ -11,7 +11,8 @@ class ChatTile extends StatelessWidget {
     required this.userId,
     required this.lastMessage,
     required this.lastMessageTs,
-    required this.chatroomId, required this.index,
+    required this.chatroomId,
+    required this.index,
   }) : super(key: key);
 
   final String userId;
@@ -22,88 +23,95 @@ class ChatTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<HomeController>(builder: (ctrl) {
-      return Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 8.0,
-          vertical: 8.0,
-        ),
-        child: InkWell(
-          onTap: () {
-            // Navigator.of(context).pushNamed(
-            //   ChatScreen.routeName,
-            //   arguments: {
-            //     'userId': userId,
-            //   },
-            // );
-            ctrl.fetchMessage(ctrl.usersShow[index].username as String);
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => ChatScreen(userId: ctrl.usersShow[index].username as String,)),
-            );
-          },
-          child: Row(
-            children: [
-              // Profile Picture
-              CircleAvatar(
-                radius: 30,
-                backgroundImage: NetworkImage('https://www.shutterstock.com/image-photo/young-handsome-man-beard-wearing-260nw-1768126784.jpg'),
-              ),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Name
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                      child: Text(
-                        ctrl.usersShow[index].username as String,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
+    return GetBuilder<HomeController>(
+      builder: (ctrl) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 8.0,
+            vertical: 8.0,
+          ),
+          child: InkWell(
+            onTap: () {
+              // Navigator.of(context).pushNamed(
+              //   ChatScreen.routeName,
+              //   arguments: {
+              //     'userId': userId,
+              //   },
+              // );
+              ctrl.fetchMessage(ctrl.usersShow[index].username as String);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ChatScreen(
+                    userId: ctrl.usersShow[index].username as String,
+                  ),
+                ),
+              );
+            },
+            child: Row(
+              children: [
+                // Profile Picture
+                CircleAvatar(
+                  radius: 30,
+                  backgroundImage: NetworkImage(
+                      'https://www.shutterstock.com/image-photo/young-handsome-man-beard-wearing-260nw-1768126784.jpg'),
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Name
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                        child: Text(
+                          ctrl.usersShow[index].username as String,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 5),
-                    // Last Message + Ts
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                          child: Flexible(
-                            child: Text(
-                              lastMessage,
-                              style: const TextStyle(
-                                color: AppColors.darkGreyColor,
+                      const SizedBox(height: 5),
+                      // Last Message + Ts
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                            child: Flexible(
+                              child: Text(
+                                lastMessage,
+                                style: const TextStyle(
+                                  color: AppColors.darkGreyColor,
+                                ),
+                                overflow: TextOverflow.ellipsis,
                               ),
-                              overflow: TextOverflow.ellipsis,
                             ),
                           ),
-                        ),
-                        const Text(' → '),
-                        Text(
-                          lastMessageTs.jm(),
-                          style: const TextStyle(
-                            color: AppColors.darkGreyColor,
+                          const Text(' → '),
+                          Text(
+                            lastMessageTs.jm(),
+                            style: const TextStyle(
+                              color: AppColors.darkGreyColor,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              // Message status
-              const Padding(
-                padding: EdgeInsets.only(left: 10),
-                child: Icon(
-                  Icons.check_circle_outline,
-                  color: AppColors.messengerDarkGrey,
+                // Message status
+                const Padding(
+                  padding: EdgeInsets.only(left: 10),
+                  child: Icon(
+                    Icons.check_circle_outline,
+                    color: AppColors.messengerDarkGrey,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      );
-    });
+        );
+      },
+    );
   }
 }
