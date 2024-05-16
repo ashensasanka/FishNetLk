@@ -24,7 +24,7 @@ class MarketPage extends StatelessWidget {
       builder: (ctrl) {
         return RefreshIndicator(
           onRefresh: () async {
-            ctrl.fetchProducts();
+            ctrl.fetchAllProducts();
           },
           child: Scaffold(
             body: Container(

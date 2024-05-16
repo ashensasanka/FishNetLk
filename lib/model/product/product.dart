@@ -3,8 +3,11 @@ part 'product.g.dart';
 
 @JsonSerializable()
 class Product {
-  @JsonKey(name:"id")
-  String? id;
+  @JsonKey(name:"ownid")
+  String? ownid;
+
+  @JsonKey(name:"allid")
+  String? allid;
 
   @JsonKey(name:"name")
   String? name;
@@ -28,7 +31,8 @@ class Product {
   bool? offer;
 
   Product({
-   this.id,
+   this.ownid,
+   this.allid,
    this.name,
    this.description,
    this.category,

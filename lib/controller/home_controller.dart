@@ -110,11 +110,11 @@ class HomeController extends GetxController{
     usersCollection = firestore.collection('Users');
     sellermessageCollection = firestore.collection('sellermessage');
     await fetchCategory();
-    await fetchProducts();
     await fetchPostDetails();
     await fetchPostsList();
     await fetchSellerMessage();
     await fetchUserDetails();
+    await fetchAllProducts();
     super.onInit();
   }
 
@@ -264,7 +264,7 @@ class HomeController extends GetxController{
     try {
       DocumentReference doc = cartColl.doc();
       Product product = Product(
-        id:doc.id,
+        ownid:doc.id,
         name:productShowInUi[index].name,
         category: category,
         description: productDescriptionCtrl.text,
@@ -283,7 +283,9 @@ class HomeController extends GetxController{
   }
 
   // Add product details into product collection
-  addProduct(File? selectedImage, String filetype)async{
+  addProduct(File? selectedImage, String filetype, String UID)async{
+    CollectionReference allproductColl = FirebaseFirestore.instance.collection('product');
+    CollectionReference ownproductColl = FirebaseFirestore.instance.collection('product${UID}');
     try {
       if (selectedImage == null) {
         Get.snackbar('Error', 'Please select an image', colorText: Colors.red);
@@ -297,9 +299,11 @@ class HomeController extends GetxController{
 
       await storageReference.putFile(selectedImage, metadata);
       final String imageUrl = await storageReference.getDownloadURL();
-      DocumentReference doc = productCollection.doc();
+      DocumentReference alldoc = allproductColl.doc();
+      DocumentReference owndoc = ownproductColl.doc();
       Product product = Product(
-            id:doc.id,
+            ownid:owndoc.id,
+            allid: alldoc.id,
             name:productNameCtrl.text,
             category: category,
             description: productDescriptionCtrl.text,
@@ -309,7 +313,8 @@ class HomeController extends GetxController{
             offer: offer,
           );
       final productJson = product.toJson();
-      doc.set(productJson);
+      owndoc.set(productJson);
+      alldoc.set(productJson);
       Get.snackbar('Success', 'Product added successfully', colorText: Colors.green);
       setValuesDefault();
     } catch (e) {
@@ -427,13 +432,28 @@ class HomeController extends GetxController{
   }
 
   // Fetch the products details from the product details collection
-  fetchProducts() async {
+  fetchOwnProducts(String UID) async {
+    CollectionReference productColl = FirebaseFirestore.instance.collection('product${UID}');
     try {
-      QuerySnapshot productSnapshot = await productCollection.get();
+      QuerySnapshot productSnapshot = await productColl.get();
       final List<Product> retrievedProducts = productSnapshot.docs.map((doc) => Product.fromJson(doc.data() as Map<String, dynamic>)).toList();
       products.clear();
       products.assignAll(retrievedProducts);
-      productShowInUi.assignAll(products);
+      Get.snackbar('Success', 'Product fetch successfully', colorText: Colors.green);
+    } catch (e) {
+      Get.snackbar('Error', e.toString(), colorText: Colors.red);
+    } finally{
+      update();
+    }
+  }
+
+  fetchAllProducts() async {
+    CollectionReference productColl = FirebaseFirestore.instance.collection('product');
+    try {
+      QuerySnapshot productSnapshot = await productColl.get();
+      final List<Product> retrievedProducts = productSnapshot.docs.map((doc) => Product.fromJson(doc.data() as Map<String, dynamic>)).toList();
+      productShowInUi.clear();
+      productShowInUi.assignAll(retrievedProducts);
       Get.snackbar('Success', 'Product fetch successfully', colorText: Colors.green);
     } catch (e) {
       Get.snackbar('Error', e.toString(), colorText: Colors.red);
@@ -501,10 +521,13 @@ class HomeController extends GetxController{
   }
 
   // Delete the products from database
-  deleteProduct(String id) async {
+  deleteProduct(String ownid, String UID, String allid) async {
+    CollectionReference allproductColl = FirebaseFirestore.instance.collection('product');
+    CollectionReference ownproductColl = FirebaseFirestore.instance.collection('product${UID}');
     try {
-      await productCollection.doc(id).delete();
-      fetchProducts();
+      await ownproductColl.doc(ownid).delete();
+      await allproductColl.doc(allid).delete();
+      fetchOwnProducts(UID);
     } catch (e) {
       Get.snackbar('Error', e.toString(), colorText: Colors.red);
     }
@@ -514,7 +537,6 @@ class HomeController extends GetxController{
     CollectionReference logColl = FirebaseFirestore.instance.collection('logdetails${UID}');
     try {
       await logColl.doc(id).delete();
-      fetchProducts();
     } catch (e) {
       Get.snackbar('Error', e.toString(), colorText: Colors.red);
     }
